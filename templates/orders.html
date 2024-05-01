@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Orders</h1>
+<table class="table table-hover">
+    <thead class="">
+        <th scope="col">Order ID</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Customer ID</th>
+        <th scope="col">Total</th>
+        <th scope="col">Created Date</th> 
+        <th scope="col">Processed Date</th> 
+        <th scope="col">Manage</th> 
+        <th scope="col"></th> 
+        <!-- ^^^ this is just for consistency to keep the line to show up -->
+    </thead>
+        {%for order in orders %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('html.orders') }}/{{ order.id }}">{{ order.id }}</a>
+                </td>
+                <td> 
+                    <a href="{{ url_for('html.customers') }}/{{ order.customer_id }}">{{ order.customers.name }}</a>
+                </td>
+                <td>
+                    <a href="{{ url_for('html.customers') }}/{{ order.customer_id }}">{{ order.customer_id }}</a>
+                </td>
+                <td>
+                    {{ order.total }}
+                </td>
+                <td>
+                    {{ order.created }}
+                </td>
+                <td>
+                    {{ order.processed }}
+                </td>
+                <td>
+                    {% if order.processed %}
+                    <form method="POST" action="{{ url_for('html.process_order_web', order_id=order.id) }}">
+                        <button class="btn btn-info" type="submit"disabled>Process</button>
+                    </form>
+                    {% else %}
+                    <form method="POST" action="{{ url_for('html.process_order_web', order_id=order.id) }}">
+                        <button class="btn btn-info" type="submit">Process</button>
+                    </form>
+                    {% endif %}
+                    {% set class_name = "pending" %}
+                        {% if order.processed %}
+                            {% set class_name = "processed" %}
+                        {% endif %}
+                    <p class="{{ class_name }}"></p>
+                </td>
+                <td>
+                    {% if order.processed %}
+                        <form method="POST" action="{{ url_for('html.order_delete', order_id=order.id) }}">
+                            <button class="btn btn-danger" type="submit" disabled>Delete</button>
+                        </form>
+                    {% else %}
+                        <form method="POST" action="{{ url_for('html.order_delete', order_id=order.id) }}">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+        {%endfor%} 
+</table>
+{% endblock %}  

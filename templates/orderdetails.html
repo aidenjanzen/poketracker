@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Order Details</h1>
+<p>Created: {{ order.created }}</p>
+<p>Processed: {{ order.processed }}</p>
+<h3>Order number: {{ order.id }}</h3>
+<table class="table table-hover">
+    <thead class="">
+        <th scope="col">Product ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Quantity Available</th>
+        <th scope="col">Price</th>
+    </thead>
+    {%for po in order.products %}
+    <tr>
+        <td>
+            {{ po.product.id}}
+        <td>
+            {{ po.product.name }}
+        </td>
+        <td>
+            {{ po.quantity }}
+        </td>
+        <td>
+            {{ po.product.available }}
+        </td>
+        <td>
+            {{ po.price_quantity() }}
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+<h3>Order Total: {{ order.total }}</h3>
+{% if order.processed %}
+    <form method="POST" action="{{ url_for('html.process_order_web', order_id=order.id) }}">
+        <button class="btn btn-info btn-block" type="submit"disabled>Process</button>
+    </form>
+    {% else %}
+    <form method="POST" action="{{ url_for('html.process_order_web', order_id=order.id) }}">
+        <button class="btn btn-info btn-block" type="submit">Process</button>
+    </form>
+    {% endif %}
+    {% set class_name = "pending" %}
+    {% if order.processed %}
+    {% set class_name = "processed" %}
+    {% endif %}
+    <p class="{{ class_name }}"></p>
+    {% if order.processed %}
+    <form method="POST" action="{{ url_for('html.order_delete', order_id=order.id) }}">
+        <button class="btn btn-danger btn-block" type="submit" disabled>Delete</button>
+    </form>
+    {% else %}
+    <form method="POST" action="{{ url_for('html.order_delete', order_id=order.id) }}">
+        <button class="btn btn-danger btn-block" type="submit">Delete</button>
+    </form>
+    {% endif %}
+    
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+name,price,category
+apple,1.49,fruits
+bananas,3.49,fruits
+lemon,1.0,fruits
+orange,1.19,fruits
+raspberries,7.99,fruits
+potato,1.49,vegetables
+onions,3.99,vegetables
+tomato,2.99,vegetables
+eggplant,4.99,vegetables
+cucumber,1.99,vegetables
+bread,1.59,bakery
+croissant,2.79,bakery
+donuts,3.79,bakery
+chicken breast,10.78,meat
+chicken thigh,8.99,meat
+ground beef,6.99,meat
+bbq ribs,14.99,meat
+cheese,8.99,dairy
+milk,3.49,dairy
+eggs,4.49,dairy
