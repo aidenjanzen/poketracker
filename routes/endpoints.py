@@ -5,8 +5,12 @@ from models import Customer, Product, Order, ProductOrder
 web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
+def base():
+    return render_template("home.html")
+
+@web_pages_bp.route("/home")
 def home():
-    return render_template("base.html")
+    return render_template("home.html")
 
 
 @web_pages_bp.route("/customers")
