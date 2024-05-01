@@ -2,11 +2,17 @@ from database import db
 from flask import Blueprint
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from models import Customer, Product, Order, ProductOrder
+
+import os
 web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
 def base():
-    return render_template("home.html")
+    imageList = os.listdir('static/shinysprites')
+    imagelist = sorted(['shinysprites/' + image for image in imageList], key=lambda x: int(os.path.splitext(x.split('/')[-1])[0]))
+
+    return render_template("home.html", sprites=imagelist)
+
 
 @web_pages_bp.route("/home")
 def home():
@@ -72,4 +78,3 @@ def process_order_web(order_id):
     db.session.commit()
     print(result) #error if any
     return redirect(url_for("html.orders"))
-
