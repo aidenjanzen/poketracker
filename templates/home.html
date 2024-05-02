@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if home %}
 <h1>This is the homepage</h1>
+
+
+<!-- the rest of the css for hompage goes here -->
+
+
+
+{% else %}
+<h1>This is Generation {{number}}</h1>
+{% endif %}
 
 {% for image in sprites %}
 <img class="{{ image }}" src = "{{ url_for('static', filename=image)}}">

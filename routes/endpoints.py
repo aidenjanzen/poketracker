@@ -6,17 +6,23 @@ from models import Customer, Product, Order, ProductOrder
 import os
 web_pages_bp = Blueprint("html", __name__)
 
+def getImage(location):
+    imageList = os.listdir('static/sprites/'+ location)
+    imagelist = sorted(['sprites/' + image for image in imageList if image.endswith(".png")], key=lambda x: int(os.path.splitext(x.split('/')[-1])[0]))
+    return imagelist
+
 @web_pages_bp.route("/")
 def base():
-    imageList = os.listdir('static/sprites')
-    imagelist = sorted(['sprites/' + image for image in imageList if image.endswith(".png")], key=lambda x: int(os.path.splitext(x.split('/')[-1])[0]))
-
-    return render_template("home.html", sprites=imagelist)
-
+    return render_template("home.html", home=True)
 
 @web_pages_bp.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", home=True)
+
+@web_pages_bp.route("/gen<number>")
+def gen(number):
+    imagelist = getImage("gen" + number)
+    return render_template("home.html", sprites=imagelist, number=number)
 
 
 @web_pages_bp.route("/customers")
