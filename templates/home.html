@@ -4,7 +4,7 @@
 <h1>This is the homepage</h1>
 
 {% for image in sprites %}
-<img src = "{{ url_for('static', filename=image)}}">
+<img class="{{ image }}" src = "{{ url_for('static', filename=image)}}">
 {% endfor %}
 
 

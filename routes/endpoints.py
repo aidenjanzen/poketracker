@@ -8,8 +8,8 @@ web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
 def base():
-    imageList = os.listdir('static/shinysprites')
-    imagelist = sorted(['shinysprites/' + image for image in imageList], key=lambda x: int(os.path.splitext(x.split('/')[-1])[0]))
+    imageList = os.listdir('static/sprites')
+    imagelist = sorted(['sprites/' + image for image in imageList], key=lambda x: int(os.path.splitext(x.split('/')[-1])[0]))
 
     return render_template("home.html", sprites=imagelist)
 
