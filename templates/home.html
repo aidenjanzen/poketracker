@@ -360,28 +360,24 @@
 
 
 {% else %}
-<h1>This is Generation {{number}}</h1>
-{% endif %}
-
-
+<h1>This is Generation {{ number }}</h1>
 <div class="pokePage">
-    {% for image in sprites %}
-    {% set dexNum = image[8:-4] %}
-    <div class="pokeDiv">
-        <div class="{{dexNum}}"></div>
-        <h2>{{pokedex[dexNum] }}</h2>
-        <!-- <img class="pokeImage" src= "{{ url_for('static', filename=image)}}"> -->
-        <img class="pokeImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{dexNum}}.png"
-        <h3>Type: </h3>
-        <button type="button" class="btn btn-primary">
-            <a href="{{ url_for('html.products') }}" class="link-light">Add to Collection</a>
-        </button>
-        <button type="button" class="btn btn-danger">
-            <a href="{{ url_for('html.products') }}" class="link-light">Information</a>
-        </button>
-    </div>
+    {% for pokemon in array %}
+        <div class="pokeDiv">
+            <!-- <p>class="{{ image }}"</p> -->
+            <h2>{{ pokemon["name"] }}</h2>
+
+            <img class="pokeImage" src="{{ pokemon['image'] }}">
+            <h3>Type: {{pokemon['type']}}</h3>
+            <button type="button" class="btn btn-primary">
+                <a href="{{ url_for('html.products') }}" class="link-light">Add to Collection</a>
+            </button>
+            <button type="button" class="btn btn-danger">
+                <a href="{{ url_for('html.products') }}" class="link-light">Information</a>
+            </button>
+        </div>
     {% endfor %}
 </div>
-
+{% endif %}
 
 {% endblock %}

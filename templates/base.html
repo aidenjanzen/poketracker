@@ -50,8 +50,8 @@
                     <a href="{{ url_for('html.gen', number='9') }}" class="link-light">Gen 9</a>
                 </button>
             </nav>
-            <form action="{{ url_for('html.search') }}">
-                <input type="text" name="query" placeholder="Search for a Pokémon">
+            <form action="{{ url_for('html.search', pokemon=searchInput) }}" method="GET">
+                <input type="text" name="query" id="searchInput" placeholder="Search for a Pokémon">
                 <button type="submit">Search</button>
             </form>
             <br>

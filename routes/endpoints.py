@@ -3,6 +3,8 @@ from flask import Blueprint
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from models import Customer, Product, Order, ProductOrder
 
+import requests
+
 from pokedex import pokedex
 
 import os
@@ -25,11 +27,31 @@ def home():
 def search():
     return render_template("search.html")
 
-@web_pages_bp.route("/gen<number>")
+@web_pages_bp.route("/gen<int:number>")
 def gen(number):
-    imagelist = getImage("gen" + number)
-    return render_template("home.html", sprites=imagelist, number=number, pokedex=pokedex)
-
+    
+    amounts = [151, 100, 135, 107, 156, 72, 88, 96, 120]
+    startNumber = [1, 152, 252, 387, 494, 650, 722, 810, 906]
+    array = []
+    for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])):
+    # for i in range(1,19):
+        # print(i)
+        data = requests.get(f"https://pokeapi.co/api/v2/pokemon/{i}/")
+        # data = requests.get(f"https://pokeapi.co/api/v2/type/{i}/")
+        # print(data.text)
+        parsedData = ""
+        parsedData = data.json()
+        # print(parsedData)
+        # print(data.forms)s
+        array.append(
+            {
+            "number": i,
+            "name": pokedex[i],
+            "type": parsedData["types"][0]["type"]["name"],
+            "image": f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{i}.png",
+            }
+        )
+    return render_template("home.html", number=number, pokedex=pokedex, array=array)
 
 @web_pages_bp.route("/customers")
 def customers():
