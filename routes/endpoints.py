@@ -3,6 +3,8 @@ from flask import Blueprint
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from models import Customer, Product, Order, ProductOrder
 
+from pokedex import pokedex
+
 import os
 web_pages_bp = Blueprint("html", __name__)
 
@@ -19,10 +21,14 @@ def base():
 def home():
     return render_template("home.html", home=True)
 
+@web_pages_bp.route("/search")
+def search():
+    return render_template("search.html")
+
 @web_pages_bp.route("/gen<number>")
 def gen(number):
     imagelist = getImage("gen" + number)
-    return render_template("home.html", sprites=imagelist, number=number)
+    return render_template("home.html", sprites=imagelist, number=number, pokedex=pokedex)
 
 
 @web_pages_bp.route("/customers")
