@@ -1,0 +1,18 @@
+.pokeImage {
+    width: 200px;
+    height: auto;
+}
+.pokeDiv {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+.pokePage {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+    justify-content: space-between;
+    width: 900px;
+    height: auto;
+}

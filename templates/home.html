@@ -363,9 +363,19 @@
 <h1>This is Generation {{number}}</h1>
 {% endif %}
 
-{% for image in sprites %}
-<img class="{{ image }}" src = "{{ url_for('static', filename=image)}}">
-{% endfor %}
+<div class="pokePage">
+    {% for image in sprites %}
+    <div class="pokeDiv">
+        <img class="pokeImage" src= "{{ url_for('static', filename=image)}}">
+        <button type="button" class="btn btn-primary">
+            <a href="{{ url_for('html.products') }}" class="link-light">Add to Collection</a>
+        </button>
+        <button type="button" class="btn btn-danger">
+            <a href="{{ url_for('html.products') }}" class="link-light">Information</a>
+        </button>
+    </div>
+    {% endfor %}
+</div>
 
 
 {% endblock %}
