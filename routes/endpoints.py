@@ -10,11 +10,6 @@ from pokedex import pokedex
 import os
 web_pages_bp = Blueprint("html", __name__)
 
-def getImage(location):
-    imageList = os.listdir('static/sprites/'+ location)
-    imagelist = sorted(['sprites/' + image for image in imageList if image.endswith(".png")], key=lambda x: int(os.path.splitext(x.split('/')[-1])[0]))
-    return imagelist
-
 @web_pages_bp.route("/")
 def base():
     return render_template("home.html", home=True)
@@ -29,29 +24,9 @@ def search():
 
 @web_pages_bp.route("/gen<int:number>")
 def gen(number):
-    
     amounts = [151, 100, 135, 107, 156, 72, 88, 96, 120]
     startNumber = [1, 152, 252, 387, 494, 650, 722, 810, 906]
-    array = []
-    for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])):
-    # for i in range(1,19):
-        # print(i)
-        data = requests.get(f"https://pokeapi.co/api/v2/pokemon/{i}/")
-        # data = requests.get(f"https://pokeapi.co/api/v2/type/{i}/")
-        # print(data.text)
-        parsedData = ""
-        parsedData = data.json()
-        # print(parsedData)
-        # print(data.forms)s
-        array.append(
-            {
-            "number": i,
-            "name": pokedex[i],
-            "type": parsedData["types"][0]["type"]["name"],
-            "image": f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{i}.png",
-            }
-        )
-    return render_template("home.html", number=number, pokedex=pokedex, array=array)
+    return render_template("home.html", number=number, pokedex=pokedex, amounts=amounts, startNumber=startNumber)
 
 @web_pages_bp.route("/customers")
 def customers():
@@ -67,7 +42,6 @@ def customer_details(customer_id):
     result = db.session.execute(statement)
     customer = result.scalar()
     return render_template("customerorders.html", customer=customer)
-
 
 
 @web_pages_bp.route("/products")
