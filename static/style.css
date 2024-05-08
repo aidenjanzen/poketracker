@@ -1,3 +1,7 @@
+.container {
+   width: 100%; 
+}
+
 .pokeImage {
     width: 200px;
     height: auto;
