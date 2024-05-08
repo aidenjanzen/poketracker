@@ -12,11 +12,11 @@ web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
 def base():
-    return render_template("home.html", home=True)
+    return render_template("home.html")
 
 @web_pages_bp.route("/home")
 def home():
-    return render_template("home.html", home=True)
+    return render_template("home.html")
 
 @web_pages_bp.route("/search")
 def search():
@@ -26,7 +26,7 @@ def search():
 def gen(number):
     amounts = [151, 100, 135, 107, 156, 72, 88, 96, 120]
     startNumber = [1, 152, 252, 387, 494, 650, 722, 810, 906]
-    return render_template("home.html", number=number, pokedex=pokedex, amounts=amounts, startNumber=startNumber)
+    return render_template("generations.html", number=number, pokedex=pokedex, amounts=amounts, startNumber=startNumber)
 
 @web_pages_bp.route("/customers")
 def customers():

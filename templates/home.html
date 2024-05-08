@@ -2,7 +2,6 @@
 
 {% block content %}
 
-{% if home %}
 <h1>This is the homepage</h1>
 
 
@@ -353,34 +352,4 @@
 </footer>
 
 <script src="js/script.js" type="module"></script>
-
-
-
-
-
-{% else %}
-<h1>This is Generation {{ number }}</h1>
-<div class="pokePage">
-  {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])): %}
-  <div class="pokeDiv">
-    <div class="{{i}}"></div>
-    <h2>{{pokedex[i].name }}</h2>
-    <img class="pokeImage"
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
-      <h3>Type: 
-        {% for type in pokedex[i].type %}
-        {{ type }}
-        {% endfor %}
-      </h3>
-    <button type="button" class="btn btn-primary">
-      <a href="{{ url_for('html.products') }}" class="link-light">Add to Collection</a>
-    </button>
-    <button type="button" class="btn btn-danger">
-      <a href="{{ url_for('html.products') }}" class="link-light">Information</a>
-    </button>
-  </div>
-  {% endfor %}
-</div>
-{% endif %}
-
 {% endblock %}
