@@ -11,11 +11,11 @@ app.instance_path = Path("./data").resolve()  # current path
 db.init_app(app)
 
 
-from routes import web_pages_bp
+from routes import web_pages_bp, api_teams_bp
 
 app.register_blueprint(web_pages_bp, url_prefix="/")
 
-
+app.register_blueprint(api_teams_bp, url_prefix="/")
 
 if __name__ == "__main__":  # keep at the bottom
     app.run(debug=True, port=8888)
