@@ -2,7 +2,7 @@ from database import db
 from flask import Blueprint
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from models import Customer, Product, Order, ProductOrder
-
+from flask_login import logout_user
 import requests
 
 from pokedex import pokedex
@@ -27,6 +27,22 @@ def gen(number):
     amounts = [151, 100, 135, 107, 156, 72, 88, 96, 120]
     startNumber = [1, 152, 252, 387, 494, 650, 722, 810, 906]
     return render_template("generations.html", number=number, pokedex=pokedex, amounts=amounts, startNumber=startNumber)
+
+
+@web_pages_bp.route("/register")
+def register():
+    return render_template("register.html")
+
+@web_pages_bp.route("/login")
+def login():
+    return render_template("login.html")
+
+@web_pages_bp.route("/logout")
+def logout():
+    logout_user()
+    return render_template("home.html")
+
+
 
 @web_pages_bp.route("/teams")
 def teams():

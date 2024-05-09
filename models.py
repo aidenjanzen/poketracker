@@ -3,7 +3,12 @@ from sqlalchemy.orm import mapped_column, relationship
 from sqlalchemy.sql import functions as func
 from database import db
 from flask import jsonify
+from flask_login import UserMixin
 
+class Users(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(250), unique=True, nullable=False)
+    password = db.Column(db.String(250), nullable=False)
 
 class Customer(db.Model):
     id = mapped_column(Integer, primary_key=True)  # auto increments by default
