@@ -20,11 +20,13 @@ login_manager.init_app(app) #initializes the login manager
 def loader_user(user_id):
     return Users.query.get(user_id)
 
-from routes import web_pages_bp, api_teams_bp
+from routes import web_pages_bp, api_teams_bp, api_login_bp, api_register_bp
 
 app.register_blueprint(web_pages_bp, url_prefix="/")
-
 app.register_blueprint(api_teams_bp, url_prefix="/")
+
+app.register_blueprint(api_login_bp, url_prefix="/")
+app.register_blueprint(api_register_bp, url_prefix="/")
 
 if __name__ == "__main__":  # keep at the bottom
     app.run(debug=True, port=8888)
