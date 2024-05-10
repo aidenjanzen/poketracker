@@ -1,7 +1,7 @@
 from database import db
 from flask import Blueprint
 from flask import Flask, render_template, jsonify, request, redirect, url_for
-from models import Customer, Product, Order, ProductOrder
+from models import Users
 from flask_login import logout_user
 import requests
 

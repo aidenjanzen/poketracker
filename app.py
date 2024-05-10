@@ -3,7 +3,7 @@ from flask_login import LoginManager
 from flask_login import UserMixin
 from pathlib import Path
 from database import db
-from models import Customer, Product, Order, ProductOrder, Users
+from models import Users
 import os
 
 app = Flask(__name__)
