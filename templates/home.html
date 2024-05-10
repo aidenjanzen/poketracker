@@ -2,7 +2,19 @@
 
 {% block content %}
 
-<h1>This is the homepage</h1>
+
+<section class="header">
+    <div class="textbox">
+        <h1>Welcome to your very own Pokedex</h1>
+           <p> 
+            Creating your very own Pokedex allows you to embark on a journey of exploration, discovery, and imagination, unlocking a world where every creature symbolizes endless possibilities and untold adventure
+           </p>
+           <form action="{{ url_for('html.search', pokemon=searchInput) }}" method="GET">
+            <input type="text" name="query" id="search-pokemon" placeholder="Search for a PokÃ©mon">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
 
 <h1>LOGIN CHECK BELOW</h1>
 

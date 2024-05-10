@@ -1,6 +1,73 @@
-.container {
-   width: 100%; 
+/* @import url("sections/sidebar.css");
+@import url("sections/gen-filter.css"); */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff0de;
+  }
+
+  .header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("1.jpg");
+    background-size: cover;
+    background-color: #f0f0f0; 
+    background-position: center;
+    position: relative;
+    z-index: 1;
 }
+
+
+.textbox {
+    width: 90%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #00000050;
+    border-radius: 25px;
+}
+.textbox h1 {
+    font-size: 62px;
+}
+
+.textbox p {
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: white;
+}
+
+.textbox1 {
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#search-pokemon{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 34px;
+    font-size: 13p;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+#search-pokemon:hover {
+    border: 1px solid rgba(240, 41, 41, 0.8);
+    background-color: rgba(240, 41, 41, 0.8);
+    transition: 1s;
+}
+
+
 
 .pokeImage {
     width: 200px;
@@ -15,8 +82,137 @@
 }
 .pokePage {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+    flex-wrap: wrap; 
     justify-content: space-between;
     width: 900px;
     height: auto;
 }
+
+
+:root {
+    --first-color: #2e2e41;
+    --second-color: #5b85ff; 
+    --third-color: #434354;
+    --text-color: #fff;
+
+    --box-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
+    --text-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
+}
+/* 
+section {
+    position: relative;
+    margin: 0 80px;
+    transition: 0.5s ease;
+} */
+
+.containter{
+    margin: 0;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: var(--first-color);
+    position: relative;
+
+}
+.tab-nav-bar {
+    position: relative;
+    margin: 65px 10px 40px 10px;
+}
+
+.tab-navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+.tab-menu{
+    color: var(--text-color);
+    list-style: none;
+    background: var(--third-color);
+    max-width: 800px;
+    padding: 10px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--thrid-color);
+    border-radius: 50px;
+    box-shadow: var(--box-shadow);
+    overflow-x: auto;
+    user-select: none;
+}
+
+.tab-menu::-webkit-scrollbar{
+    display: none;
+}
+
+.item {
+    color: var(--text-color);
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0 2px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: var(--second-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+.sidebar {
+    position: fixed;
+    top: 35%;
+    left: -55px; 
+    width: 70px;
+    height: 35vh;
+    background-color: rgba(225, 50, 50, 0.8);
+    padding-top: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    overflow: hidden;
+    transition: left 0.5s ease; 
+    z-index: 999;
+  }
+  
+  .sidebar:hover {
+    left: 0;
+  }
+  
+  .sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 20px;
+    height: 100%;
+    background-color: rgba(240, 41, 41, 0.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+  }
+  
+  .sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar ul li a img {
+    background-color: rgba(240, 41, 41, 0.8);
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+  }
