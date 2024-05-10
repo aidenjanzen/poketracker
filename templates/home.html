@@ -20,6 +20,9 @@
 
 {% if current_user.is_authenticated %}
 <h1>You are logged in</h1>
+<button type="button" class="btn btn-primary">
+    <a href="{{ url_for('html.logout') }}" class="link-light">Logout</a>
+</button>
 {% else %}
 <h1>You are not logged in</h1>
 {% endif %}

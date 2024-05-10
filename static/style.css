@@ -216,3 +216,6 @@ section {
     height: auto;
     margin-right: 10px;
   }
+  .sidebarphoto {
+    width: 30px;
+  }
