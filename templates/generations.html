@@ -4,23 +4,33 @@
 
 <h1>This is Generation {{ number }}</h1>
 <div class="pokePage">
-  {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])): %}
+  {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
   <div class="pokeDiv">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
     <img class="pokeImage"
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
-      <h3>Type: 
-        {% for type in pokedex[i].type %}
-        {{ type }}
-        {% endfor %}
-      </h3>
-    <button type="button" class="btn btn-primary">
-      <a href="{{ url_for('html.teams') }}" class="link-light">Add to Collection</a>
-    </button>
-    <button type="button" class="btn btn-danger">
-      <a href="{{ url_for('html.teams') }}" class="link-light">Information</a>
-    </button>
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Open modal {{i}}</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
   </div>
   {% endfor %}
 </div>

@@ -43,7 +43,12 @@ def logout():
     return render_template("home.html")
 
 
-
 @web_pages_bp.route("/teams")
 def teams():
     return render_template("teams.html")
+
+@web_pages_bp.route("/add", methods=["POST"])
+def add_pokemon():
+    number = request.form.get("pokemon_number")
+    print(number)
+    return redirect(url_for('html.teams'))
