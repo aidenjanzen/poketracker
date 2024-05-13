@@ -5,7 +5,9 @@
 <h1>This is Generation {{ number }}</h1>
 <div class="pokePage">
   {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
+  {% if "Grass" in pokedex[i].type %}
   <div class="pokeDiv">
+
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
     <img class="pokeImage"
@@ -32,6 +34,7 @@
 
 
   </div>
+  {% endif %}
   {% endfor %}
 </div>
 
