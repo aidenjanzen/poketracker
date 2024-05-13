@@ -9,18 +9,18 @@ class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False, unique=False)
-    collections = relationship("Collections")
+    collections = relationship("Collection")
 
 class Collection(db.Model):
     id = mapped_column(Integer, primary_key=True)
     user_id = mapped_column(Integer, ForeignKey(Users.id), nullable=False)
-    users = relationship("User", back_populates="collections")
+    users = relationship("Users", back_populates="collections")
     pokemon = relationship("PokeCollection", back_populates="collections", cascade="all, delete-orphan")
 
 class Pokemon(db.Model):
     number = mapped_column(Integer, primary_key=True)
     collection_id = mapped_column(Integer, ForeignKey(Collection.id), nullable=False)
-    collections = relationship("PokeCollections")
+    collections = relationship("PokeCollection")
 
 class PokeCollection(db.Model):
     id = mapped_column(Integer, primary_key=True)
