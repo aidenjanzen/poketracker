@@ -222,12 +222,12 @@ section {
 
   .infobutton { /* to change how the info button looks */
     display: inline-block;
-    border: 1px solid;
+    /* border: 1px solid;
     border-color: #012766;
     background: #012766;
     padding: 10px 16px;
     border-radius: 4px;
-    color: #ffffff;
+    color: #ffffff; */
 }
 [id^=modal] {
     display: none;
