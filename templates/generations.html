@@ -22,7 +22,7 @@
 <div class="pokePage">
   {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
 
-  {% if "Grass" in pokedex[i].type %}
+  {% if "Grass" in pokedex[i].type[0] %}
   <div class="pokeDivGrass">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -52,7 +52,7 @@
   </div>
   {% endif %}
 
-  {% if "Fire" in pokedex[i].type %}
+  {% if "Fire" in pokedex[i].type[0] %}
   <div class="pokeDivFire">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -82,7 +82,7 @@
   </div>
   {% endif %}
 
-  {% if "Water" in pokedex[i].type %}
+  {% if "Water" in pokedex[i].type[0] %}
   <div class="pokeDivWater">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -112,7 +112,7 @@
   </div>
   {% endif %}
 
-  {% if "Bug" in pokedex[i].type %}
+  {% if "Bug" in pokedex[i].type[0] %}
   <div class="pokeDivBug">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -142,7 +142,7 @@
   </div>
   {% endif %}
 
-  {% if "Poison" in pokedex[i].type %}
+  {% if "Poison" in pokedex[i].type[0] %}
   <div class="pokeDivPoison">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -172,7 +172,7 @@
   </div>
   {% endif %}
 
-  {% if "Flying" in pokedex[i].type %}
+  {% if "Flying" in pokedex[i].type[0] %}
   <div class="pokeDivFlying">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -202,7 +202,7 @@
   </div>
   {% endif %}
 
-  {% if "Normal" in pokedex[i].type %}
+  {% if "Normal" in pokedex[i].type[0] %}
   <div class="pokeDivNormal">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -232,7 +232,7 @@
   </div>
   {% endif %}
 
-  {% if "Electric" in pokedex[i].type %}
+  {% if "Electric" in pokedex[i].type[0] %}
   <div class="pokeDivElectric">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -262,7 +262,7 @@
   </div>
   {% endif %}
 
-  {% if "Ground" in pokedex[i].type %}
+  {% if "Ground" in pokedex[i].type[0] %}
   <div class="pokeDivGround">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
@@ -292,7 +292,7 @@
   </div>
   {% endif %}
 
-  {% if "Fairy" in pokedex[i].type %}
+  {% if "Fairy" in pokedex[i].type[0] %}
   <div class="pokeDivFairy">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
