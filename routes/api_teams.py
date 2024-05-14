@@ -1,33 +1,32 @@
 from flask import Blueprint, jsonify, request, url_for
 from database import db
-from models import Users
+from models import Users, Collection, PokeCollection, Pokemon
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 
 api_teams_bp = Blueprint("api_teams", __name__)
 
 @api_teams_bp.route("/")
-def create_order():
-    # data = request.json
-    # if "customer_id" not in data:
-    #     return "Invalid request", 400
-    # if not isinstance(data["customer_id"], int):
-    #     return "Invalid value", 400
+def get_collection():
+    pokemon = db.session.execute(db.select(Collection).where(
+        Collection.collection_id == collection.id, 
+        PokeCollection.pokemon_number==number
+        )).first()
     
-    # customer = db.get_or_404(Customer, data["customer_id"])
-    # order = Order(customers=customer)
-    # db.session.add(order)
+    request = db.session.execute(db.select(Order).order_by(Order.id)) 
+    orders = []
 
-    # for item in data["items"]:
-    #     product = db.select(Product).where(Product.name == item["name"])
-    #     addProduct = db.session.execute(product).scalar()
-    #     if addProduct == None:
-    #         return "Product not found", 400
-    #     if not isinstance(item["quantity"], int):
-    #         return "Invalid quantity value", 400
-    #     if item["quantity"] <=0:
-    #         return "Must enter a positive product amount", 400
-    #     final = ProductOrder(orders=order, product=addProduct, quantity=item["quantity"])
-    #     db.session.add(final)
-    # order.total = order.order_total()
-    # db.session.commit()
-    return "Order added", 204
+    for i in request.scalars():
+        i.total = Order.price(i)
+        db.session.commit()
+        order = {
+            'id': i.id, 
+            'customer_id': i.customer_id, 
+            'products': [f"{products.product.product} ({products.quantity})" for products in i.products_order], 
+            'total': Order.price(i),
+            'processed': None
+        }
+        order['processed'] = i.processed or 'Not processed'
+
+        orders.append(order)
+
+    return render_template('./orders.html', orders=orders)

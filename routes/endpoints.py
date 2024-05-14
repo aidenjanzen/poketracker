@@ -59,12 +59,20 @@ def add_pokemon():
         db.session.add(collection)
         db.session.commit()
 
-    existing_pokemon = PokeCollection.query.filter_by(collection_id=collection.id, pokemon_number=number).first()
-    if existing_pokemon:
+
+    exist = db.session.execute(db.select(PokeCollection).where(
+        PokeCollection.collection_id == collection.id, 
+        PokeCollection.pokemon_number==number
+        )).first()
+    # existing_pokemon = PokeCollection.query.filter_by(collection_id=collection.id, pokemon_number=number).first()
+    if exist:
         return redirect(url_for('html.gen', number=gen_number))
 
-    pokemon = Pokemon(number=number, collection_id=collection.id)  
-    db.session.add(pokemon)
+    pokemon = db.select(Pokemon).where(Pokemon.number == number)
+    addPokemon = db.session.execute(pokemon).scalar()
+    if addPokemon == None:
+        pokemon = Pokemon(number=number)
+        db.session.add(pokemon)
 
     pokecollection = PokeCollection(collection_id=collection.id, pokemon_number=number)
     db.session.add(pokecollection)
@@ -73,3 +81,5 @@ def add_pokemon():
 
 
     return redirect(url_for('html.gen', number=gen_number))
+
+
