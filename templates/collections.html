@@ -2,10 +2,43 @@
 
 {% block content %}
 
-<p>Collections page?</p>
+<p>The Pokemon you are missing are:</p>
 {% for i in pokemon %}
 <p>
     {{ i.pokemon_number }}
 </p>
+
+<div class="pokePage">
+    {% for i in pokemon %}
+    <div class="pokeDiv">
+      <div class="{{i.pokemon_number}}"></div>
+      <h2>{{pokedex[i.pokemon_number].name }}</h2>
+      <img class="pokeImage"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i.pokemon_number}}.png">
+      <h3>Type:
+        {% for type in pokedex[i.pokemon_number].type %}
+        {{ type }}
+        {% endfor %}
+      </h3>
+      <form method="POST" action="{{ url_for('html.remove_pokemon') }}">
+        <input type="hidden" name="pokemon_number" value="{{ i.pokemon_number }}">
+        <button type="submit" class="btn btn-primary">Remove from Collection</button>
+      </form>
+  
+      <a class="infobutton" href="#modal{{i.pokemon_number}}">Information</a>
+  
+      <div class="popup" id="modal{{i.pokemon_number}}">
+          <a class="popup__overlay" href="#"></a>
+          <div class="popup__wrapper">
+              <a class="popup__close" href="#">Close icon here</a>
+              <p>You click on Pokemon number {{i.pokemon_number}}</p>
+          </div>
+      </div>
+  
+  
+    </div>
+    {% endfor %}
+  </div>
+
 {%endfor%} 
 {% endblock %}

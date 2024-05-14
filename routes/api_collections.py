@@ -4,6 +4,8 @@ from models import Users, Collection, PokeCollection, Pokemon
 from flask import Flask, render_template, jsonify, request, redirect, url_for
 from flask_login import current_user
 
+from pokedex import pokedex
+
 api_collections_bp = Blueprint("api_collections", __name__)
 
 @api_collections_bp.route("/collections")
@@ -22,4 +24,4 @@ def get_collection():
         .order_by(PokeCollection.pokemon_number)
     )
     results = request.scalars()
-    return render_template('./collections.html', pokemon=results)
+    return render_template('./collections.html', pokemon=results, pokedex=pokedex)
