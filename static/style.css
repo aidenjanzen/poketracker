@@ -67,19 +67,22 @@ body {
     transition: 1s;
 }
 
-
-
 .pokeImage {
     width: 200px;
     height: auto;
 }
-.pokeDiv {
+.pokeDivGrass, .pokeDivFire, .pokeDivWater, .pokeDivBug, .pokeDivPoison, .pokeDivFlying, .pokeDivNormal, .pokeDivElectric, .pokeDivGround, .pokeDivFairy{
     width: 200px;
     display: flex;
     flex-direction: column;
     padding: 20px;
     align-items: center;
 }
+
+.hidden {
+    display: none;
+}
+
 .pokePage {
     display: flex;
     flex-wrap: wrap; 

@@ -2,12 +2,28 @@
 
 {% block content %}
 
+
 <h1>This is Generation {{ number }}</h1>
+
+<div id="myBtnContainer">
+  <button type="button" class="filter btn" onclick="showAll()">All</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Grass')">Grass</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Fire')">Fire</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Water')">Water</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Bug')">Bug</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Poison')">Poison</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Flying')">Flying</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Normal')">Normal</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Electric')">Electric</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Ground')">Ground</button>
+  <button type="button" class="filter btn" onclick="showPokemon('Fairy')">Fairy</button>
+</div>
+
 <div class="pokePage">
   {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
-  {% if "Grass" in pokedex[i].type %}
-  <div class="pokeDiv">
 
+  {% if "Grass" in pokedex[i].type %}
+  <div class="pokeDivGrass">
     <div class="{{i}}"></div>
     <h2>{{pokedex[i].name }}</h2>
     <img class="pokeImage"
@@ -35,7 +51,297 @@
 
   </div>
   {% endif %}
+
+  {% if "Fire" in pokedex[i].type %}
+  <div class="pokeDivFire">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Water" in pokedex[i].type %}
+  <div class="pokeDivWater">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Bug" in pokedex[i].type %}
+  <div class="pokeDivBug">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Poison" in pokedex[i].type %}
+  <div class="pokeDivPoison">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Flying" in pokedex[i].type %}
+  <div class="pokeDivFlying">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Normal" in pokedex[i].type %}
+  <div class="pokeDivNormal">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Electric" in pokedex[i].type %}
+  <div class="pokeDivElectric">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Ground" in pokedex[i].type %}
+  <div class="pokeDivGround">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+
+  {% if "Ground" in pokedex[i].type %}
+  <div class="pokeDivGround">
+    <div class="{{i}}"></div>
+    <h2>{{pokedex[i].name }}</h2>
+    <img class="pokeImage"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
+    <h3>Type:
+      {% for type in pokedex[i].type %}
+      {{ type }}
+      {% endfor %}
+    </h3>
+    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+      <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <button type="submit" class="btn btn-primary">Add to Collection</button>
+    </form>
+
+    <a class="infobutton" href="#modal{{i}}">Information</a>
+
+    <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+            <a class="popup__close" href="#">Close icon here</a>
+            <p>You click on Pokemon number {{i}}</p>
+        </div>
+    </div>
+
+
+  </div>
+  {% endif %}
+  
   {% endfor %}
 </div>
+
+<script>
+  function showAll() {
+    var divs = document.querySelectorAll('.pokeDivGrass, .pokeDivFire, .pokeDivWater');
+    divs.forEach(function(div) {
+      div.style.display = 'flex';
+    });
+  }
+
+  function showPokemon(type) {
+    var divs = document.querySelectorAll('.pokeDiv' + type);
+    divs.forEach(function(div) {
+      div.classList.toggle('hidden');
+    });
+  }
+
+
+</script>
+
 
 {% endblock %}
