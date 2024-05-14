@@ -83,6 +83,10 @@ body {
     display: none;
 }
 
+.show {
+    display: flex;
+}
+
 .pokePage {
     display: flex;
     flex-wrap: wrap; 

@@ -327,9 +327,9 @@
 
 <script>
   function showAll() {
-    var divs = document.querySelectorAll('.pokeDivGrass, .pokeDivFire, .pokeDivWater');
+    var divs = document.querySelectorAll('.pokeDivGrass, .pokeDivFire, .pokeDivWater, .pokeDivBug, .pokeDivPoison, .pokeDivFlying, .pokeDivNormal, .pokeDivElectric, .pokeDivGround, .pokeDivFairy');
     divs.forEach(function(div) {
-      div.style.display = 'flex';
+        div.classList.remove('hidden'); // Use div instead of element
     });
   }
 
@@ -339,8 +339,6 @@
       div.classList.toggle('hidden');
     });
   }
-
-
 </script>
 
 
