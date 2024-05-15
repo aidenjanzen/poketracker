@@ -13,7 +13,7 @@ body {
 .header {
   min-height: 100vh;
   width: 100%;
-  background-image: url("1.jpg");
+  background-image: url("/static/assests/homePage.jpg");
   background-size: cover;
   background-color: #f0f0f0;
   background-position: center;
@@ -24,10 +24,10 @@ body {
 .textbox {
   width: 90%;
   color: white;
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  /* transform: translate(-50%, -50%); */
   text-align: center;
   background-color: #00000070;
   border-radius: 25px;
