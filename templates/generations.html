@@ -2,11 +2,15 @@
 
 {% block content %}
 
+<<<<<<< HEAD
 <div class="header-gen">
   <div class="textbox">
     <h1>Generation {{ number }}</h1>
   </div>
 </div>
+=======
+<h1>This is Generation {{ number }}</h1>
+>>>>>>> origin
 
 <div class="pokePage">
   {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
@@ -22,6 +26,7 @@
     </h3>
     <form method="POST" action="{{ url_for('html.add_pokemon') }}">
       <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <input type="hidden" name="gen_number" value="{{ number }}">
       <button type="submit" class="btn btn-primary">Add to Collection</button>
     </form>
 
