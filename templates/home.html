@@ -2,33 +2,16 @@
 
 <section class="header">
   <div class="textbox">
-    <!-- <h1>Poké Tracker</h1> -->
-
-    <form
-      action="{{ url_for('html.search', pokemon=searchInput) }}"
-      method="GET"
-    >
-      <input
-        type="text"
-        name="query"
-        id="search-pokemon"
-        placeholder="Search for a PokÃ©mon"
+    <div class="logo">
+      <img
+        class="pokeball"
+        src="/static/assests/pokeball-pokemon-svgrepo-com.svg"
+        alt="Pokeball Logo"
       />
-      <button type="submit">Search</button>
-    </form>
+      <h1>Poké Tracker</h1>
+    </div>
   </div>
 </section>
-
-<div class="header">
-  <div class="logo">
-    <img
-      class="pokeball"
-      src="/static/assests/pokeball-pokemon-svgrepo-com.svg"
-      alt="Pokeball Logo"
-    />
-    <h1>Poke Tracker</h1>
-  </div>
-</div>
 
 <h1>LOGIN CHECK BELOW</h1>
 
