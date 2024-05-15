@@ -1,17 +1,31 @@
 from flask import Blueprint, jsonify, request, url_for, redirect, render_template
 from database import db
 from models import Users
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 
 api_login_bp = Blueprint("api_login", __name__)
 
 @api_login_bp.route('/login', methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        return render_template("home.html", error="Already logged in.")
+
     if request.method == "POST":
-        user = Users.query.filter_by( #filtering for username
-            username=request.form.get("username")).first()
+        username = request.form.get("username")
+        if username == "":
+            return render_template("login.html", error="Please enter a username.")
         
-        if user.password == request.form.get("password"): #check if the password entered is same as the user's password
+        user = Users.query.filter_by(username=username).first()
+        if user==None:
+            return render_template("register.html", error="No user found, please register.")
+        
+        password = request.form.get("password")
+        if password == "":
+            return render_template("login.html", error="Please Enter a password.")
+
+        if user.password == password: #check if the password entered is same as the user's password
             login_user(user)
             return redirect(url_for("html.home"))
+        else:
+            return render_template("login.html", error="Incorrect Password")
     return render_template("login.html")

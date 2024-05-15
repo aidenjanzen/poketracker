@@ -12,11 +12,11 @@ web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
 def base():
-    return render_template("home.html")
+    return render_template("home.html", current_page="home")
 
 @web_pages_bp.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", current_page="home")
 
 @web_pages_bp.route("/search")
 def search():
@@ -42,13 +42,11 @@ def logout():
     logout_user()
     return render_template("home.html")
 
-
-@web_pages_bp.route("/teams")
-def teams():
-    return render_template("teams.html")
-
 @web_pages_bp.route("/add", methods=["POST"])
 def add_pokemon():
+
+    if not current_user.is_authenticated:
+        return render_template("register.html")
 
     number = request.form.get("pokemon_number")
     gen_number = request.form.get("gen_number")
@@ -84,6 +82,9 @@ def add_pokemon():
 
 @web_pages_bp.route("/remove", methods=["POST"])
 def remove_pokemon():
+    if not current_user.is_authenticated:
+        return render_template("register.html")
+    
     number = request.form.get("pokemon_number")
 
     collection = Collection.query.filter_by(user_id=current_user.id).first()

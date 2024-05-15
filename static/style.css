@@ -22,18 +22,20 @@ body {
 }
 
 .textbox {
-  width: 90%;
+  width: 100%;
   color: white;
   top: 100px;
   text-align: center;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .button-container {
   display: flex;
-  justify-content: flex-start;
-  margin-right: 20px;
-  padding-left: 275px; /* Adjust padding as needed */
+  justify-content: flex-start; /* Align buttons to the left */
+  margin-top: 20px; /* Adjust top margin as needed */
+  padding-left: 50px; /* Adjust left padding as needed */
 }
 
 .button-container button {
@@ -46,7 +48,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-decoration: none; /* Remove link decoration */
-  margin-right: 10px;
+  margin-right: 10px; /* Adjust right margin as needed */
 }
 
 .button-container button:hover {
@@ -54,14 +56,24 @@ body {
   color: #558ccc;
 }
 
-.link-light {
+.register-hover {
   text-decoration: none;
   color: white;
 }
 
-.link-light:hover {
-  color: #558ccc;
+.register-hover:hover {
+  color: #ed5564;
 }
+
+.login-hover:hover {
+  color: #ed5564;
+}
+
+.login-hover {
+  text-decoration: none;
+  color: white;
+}
+
 /* .button-container button:hover {
   background-color: white; 
 } */
@@ -78,6 +90,7 @@ body {
 .logo h1 {
   margin-left: 30px; /* Adjust spacing between logo and title */
   padding-top: 50px;
+  width: 300px;
 }
 
 .pokeball {
@@ -153,16 +166,21 @@ section {
     transition: 0.5s ease;
 } */
 
+.genbarhome {
+  padding-top: 600px;
+  padding-bottom: 250px;
+}
+
 .containter {
   margin: 0;
-  padding: 25px;
+  padding: 0px;
   box-sizing: border-box;
   background-color: var(--first-color);
   position: relative;
 }
 .tab-nav-bar {
   position: relative;
-  margin: 65px 10px 40px 10px;
+  margin: 10px 10px 40px 10px;
 }
 
 .tab-navigation {

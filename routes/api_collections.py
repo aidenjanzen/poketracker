@@ -10,6 +10,15 @@ api_collections_bp = Blueprint("api_collections", __name__)
 
 @api_collections_bp.route("/collections")
 def get_collection():
+    if not current_user.is_authenticated:
+        return render_template("register.html")
+    
+    collection = Collection.query.filter_by(user_id=current_user.id).first()
+    if not collection:
+        collection = Collection(user_id=current_user.id)
+        db.session.add(collection)
+        db.session.commit()
+    
     collection_id = current_user.collections[0].id
 
     request = db.session.execute(

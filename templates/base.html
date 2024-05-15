@@ -30,7 +30,8 @@
             class="sidebarphoto"
             src="/static/assests/login-2-svgrepo-com.svg"
             title="Login"
-        /></a>
+          />
+        </a>
       </button>
       <button type="button" class="btn btn-primary">
         <a href="{{ url_for('html.register') }}" class="link-light">
@@ -54,6 +55,7 @@
     <div class="textbox1">
       <h1>Browse through all the Pokemons</h1>
     </div>
+    {% if current_page != 'home'%}
     <section class="container">
       <div class="tab-nav-bar">
         <div class="tab-navigation">
@@ -144,5 +146,6 @@
         </div>
       </div>
     </section>
+    {%endif%}
   </body>
 </html>

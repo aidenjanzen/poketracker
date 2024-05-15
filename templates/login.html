@@ -1,5 +1,9 @@
-{% extends "base.html" %} {% block content %}
-
+{% extends "base.html" %} {% block content %} {% if error %}
+<script>
+  let error = "{{ error }}";
+  alert(error);
+</script>
+{% endif %}
 <h1>Login:</h1>
 <form action="#" method="POST">
   <label for="username">Username:</label>
