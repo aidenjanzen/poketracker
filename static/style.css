@@ -71,7 +71,7 @@ body {
     width: 200px;
     height: auto;
 }
-.pokeDivGrass, .pokeDivFire, .pokeDivWater, .pokeDivBug, .pokeDivPoison, .pokeDivFlying, .pokeDivNormal, .pokeDivElectric, .pokeDivGround, .pokeDivFairy{
+.pokeDivGrass, .pokeDivFire, .pokeDivWater, .pokeDivBug, .pokeDivPoison, .pokeDivFlying, .pokeDivNormal, .pokeDivElectric, .pokeDivGround, .pokeDivFairy, .pokeDivPsychic, .pokeDivGhost, .pokeDivIce, .pokeDivDragon, .pokeDivDark, .pokeDivFighting, .pokeDivRock, .pokeDivSteel{
     width: 200px;
     display: flex;
     flex-direction: column;
