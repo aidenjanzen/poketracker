@@ -25,8 +25,8 @@ body {
   width: 90%;
   color: white;
   /* position: absolute; */
-  top: 50%;
-  right: 50%;
+  /* top: 50%;
+  right: 50%; */
   /* transform: translate(-50%, -50%); */
   text-align: center;
   background-color: #00000070;
@@ -34,6 +34,20 @@ body {
 }
 .textbox h1 {
   font-size: 62px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  margin-left: 10px; /* Adjust spacing between logo and title */
+}
+
+.pokeball {
+  width: 50px;
+  height: 50px;
 }
 
 .textbox p {
