@@ -49,6 +49,14 @@
             title="Logout"
         /></a>
       </button>
+      <button type="button" class="btn btn-primary">
+        <a href="{{ url_for('api_collections.get_collection') }}" class="link-light">
+          <img
+            class="sidebarphoto"
+            src="/static/assests/account-svgrepo-com.svg"
+            title="Collections"
+        /></a>
+      </button>
     </div>
     {% block content %} 
     {% endblock %}
