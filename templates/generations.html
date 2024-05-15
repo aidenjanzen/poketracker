@@ -3,6 +3,7 @@
 {% block content %}
 
 <h1>This is Generation {{ number }}</h1>
+
 <div class="pokePage">
   {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
   <div class="pokeDiv">
@@ -17,6 +18,7 @@
     </h3>
     <form method="POST" action="{{ url_for('html.add_pokemon') }}">
       <input type="hidden" name="pokemon_number" value="{{ i }}">
+      <input type="hidden" name="gen_number" value="{{ number }}">
       <button type="submit" class="btn btn-primary">Add to Collection</button>
     </form>
 
