@@ -19,7 +19,6 @@ body {
     z-index: 1;
 }
 
-
 .textbox {
     width: 90%;
     color: white;
@@ -47,7 +46,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 
 #search-pokemon{
     display: inline-block;
@@ -83,16 +81,35 @@ body {
     display: none;
 }
 
-.show {
-    display: flex;
-}
-
 .pokePage {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-between;
     width: auto;
     height: auto;
+}
+
+.filbtn {
+    z-index: 999;
+    position: fixed;
+    right: -19%; 
+    top: 35%;
+    width: 20%;
+    height: 40%;
+    background-color: rgba(225, 50, 50);
+    border-radius: 20px;
+    transition: 1s;
+    padding: 5px;
+}
+.filbtn:hover {
+    right: 0px;
+}
+.filbtn button{
+    background-color: rgb(255, 255, 255);
+    width: 45%;
+}
+.filbtn button:hover{
+    background-color: rgba(0,0,0, .2);
 }
 
 
