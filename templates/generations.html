@@ -2,7 +2,15 @@
 
 {% block content %}
 
+<<<<<<< HEAD
+<div class="header-gen">
+  <div class="textbox">
+    <h1>Generation {{ number }}</h1>
+  </div>
+</div>
+=======
 <h1>This is Generation {{ number }}</h1>
+>>>>>>> origin
 
 <div class="pokePage">
   {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
@@ -25,14 +33,24 @@
     <a class="infobutton" href="#modal{{i}}">Information</a>
 
     <div class="popup" id="modal{{i}}">
-        <a class="popup__overlay" href="#"></a>
-        <div class="popup__wrapper">
-            <a class="popup__close" href="#">Close icon here</a>
-            <p>You click on Pokemon number {{i}}</p>
-        </div>
-    </div>
-
-
+      <a class="popup__overlay" href="#"></a>
+      <div class="popup__wrapper">
+          <a class="popup__close" href="#">Close icon here</a>
+          <img class="pokeSprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png" alt="Pokemon Sprite">
+          <p>Name: {{ pokedex[i].name }}</p>
+          <p>Weight: {{ pokedex[i].weight }}</p>
+          <p>Height: {{ pokedex[i].height }}</p>
+          <p>Power: {{ pokedex[i].power }}</p>
+          <p>Moves:</p>
+          <ul>
+              {% for move in pokedex[i].moves %}
+              <li>{{ move }}
+                  <button class="like-button">Like</button>
+              </li>
+              {% endfor %}
+          </ul>
+      </div>
+  </div>
   </div>
   {% endfor %}
 </div>
