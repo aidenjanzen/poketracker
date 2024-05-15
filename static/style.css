@@ -11,31 +11,34 @@ body {
 }
 
 .header {
-  min-height: 100vh;
+  min-height: 60vh;
+  max-height: 100vh;
   width: 100%;
   background-image: url("/static/assests/homePage.jpg");
   background-size: cover;
   background-color: #f0f0f0;
-  background-position: center;
+  background-position: right;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .textbox {
+  display: flex;
+  /* display: inline-flex; */
+  flex-direction: column;
   width: 100%;
   color: white;
-  top: 100px;
-  text-align: center;
+  top: 300px;
+  /* text-align: center; */
   border-radius: 25px;
-  display: flex;
-  flex-direction: column;
 }
 
 .button-container {
   display: flex;
-  justify-content: flex-start; /* Align buttons to the left */
+  justify-content: left; /* Align buttons to the left */
   margin-top: 20px; /* Adjust top margin as needed */
-  padding-left: 50px; /* Adjust left padding as needed */
+  padding-left: 400px; /* Adjust left padding as needed */
 }
 
 .button-container button {
@@ -78,19 +81,18 @@ body {
   background-color: white; 
 } */
 
-.textbox h1 {
-  font-size: 62px;
-}
-
 .logo {
   display: flex;
   align-items: center;
+  justify-content: left;
+  padding-left: 150px;
+  /* justify-content: center; */
 }
 
 .logo h1 {
-  margin-left: 30px; /* Adjust spacing between logo and title */
   padding-top: 50px;
-  width: 300px;
+  width: 450px;
+  font-size: 62px;
 }
 
 .pokeball {
@@ -205,9 +207,9 @@ section {
   user-select: none;
 }
 
-/* .tab-menu::-webkit-scrollbar{
+.tab-menu::-webkit-scrollbar{
     display: none;
-} */
+}
 
 .item {
   color: var(--text-color);
@@ -220,6 +222,10 @@ section {
   background: var(--second-color);
   cursor: pointer;
   user-select: none;
+}
+
+.sidebar button {
+  width: 35px;
 }
 
 .sidebar {
@@ -248,54 +254,8 @@ section {
   left: 0;
 }
 
-.sidebar::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -20px;
-  width: 20px;
-  height: 100%;
-  background-color: rgba(240, 41, 41, 1); /* Changed opacity from 0.8 to 1 */
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.sidebar ul li {
-  padding: 10px 0;
-  flex: 1;
-}
-
-.sidebar ul li a {
-  color: #333;
-  text-decoration: none;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  display: flex; /* Change to flex to evenly space items */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: space-between; /* Space items evenly vertically */
-  height: 100%; /* Make the ul fill the entire height of the sidebar */
-}
-
-.sidebar ul li a img {
-  background-color: rgba(240, 41, 41, 1); /* Changed opacity from 0.8 to 1 */
-  width: 20px;
-  height: auto;
-  margin-right: 10px;
-}
-
 .sidebarphoto {
-  width: 30px;
+  width: 25px;
   display: flex; /* Change to flex to evenly space items */
   flex-direction: column; /* Stack items vertically */
   justify-content: space-between; /* Space items evenly vertically */
@@ -369,4 +329,90 @@ section {
 .pokemon-details {
   font-size: 14px;
   line-height: 1.5;
+}
+
+
+
+/* login stuff */
+.all{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  outline: none;
+}
+
+.body-login {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/static/assests/login-bg2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.body-login1 {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(/static/assests/register-bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.content {
+  background: rgba(0, 0, 0, 0.1); 
+  height: 310px;
+  width: 410px;
+  border: 2px solid rgba(255, 255, 255, 2);
+  backdrop-filter: blur(04px);
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin: auto;
+}
+
+.content h2{
+  font-size: 38px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  margin: 30px 0;
+  padding: 5 15px ;
+}
+
+.input-box input {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: 30px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.btnn {
+  display: inline-block;
+  background: #fff;
+  color: #0a2862;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 16px;
+  height: 45px;
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+  cursor: pointer;
+  margin-bottom: 30px;
+  padding: 10px;
+
 }

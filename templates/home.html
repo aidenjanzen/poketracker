@@ -1,102 +1,76 @@
 {% extends "base.html" %} {% block content %} {% if error %}
 <script>
-  let error = "{{ error }}";
-  alert(error);
+    let error = "{{ error }}";
+    alert(error);
 </script>
 {% endif %}
 
 <section class="header">
-  <div class="textbox">
-    <div class="logo">
-      <img
-        class="pokeball"
-        src="/static/assests/pokeball-pokemon-svgrepo-com.svg"
-        alt="Pokeball Logo"
-      />
-      <h1>Poké Tracker</h1>
-      <!-- Container for the buttons -->
-      <div class="button-container">
-        <button type="button" class="btn btn-primary">
-        <a href="{{ url_for('html.register') }}" class="register-hover">Register</a>
-        </button>
-        <button type="button" class="btn btn-primary">
-        <a href="{{ url_for('html.login') }}" class="login-hover">Login</a>
-        </button>
-    </div>
-    </div>
-  </div>
-        <div class="genbarhome">
-          <div class="tab-navigation">
-            <ul class="tab-menu">
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='1') }}" class="link-light"
-                    >Gen 1</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='2') }}" class="link-light"
-                    >Gen 2</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='3') }}" class="link-light"
-                    >Gen 3</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='4') }}" class="link-light"
-                    >Gen 4</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='5') }}" class="link-light"
-                    >Gen 5</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='6') }}" class="link-light"
-                    >Gen 6</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='7') }}" class="link-light"
-                    >Gen 7</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='8') }}" class="link-light"
-                    >Gen 8</a
-                  >
-                </button>
-              </li>
-              <li class="item">
-                <button type="button" class="btn btn-primary">
-                  <a href="{{ url_for('html.gen', number='9') }}" class="link-light"
-                    >Gen 9</a
-                  >
-                </button>
-            </div>
-              </li>
-              <br />
-            </ul>
-          </div>
+    <div class="textbox">
+        <div class="logo">
+            <img class="pokeball" src="/static/assests/pokeball-pokemon-svgrepo-com.svg" alt="Pokeball Logo" />
+            <h1>Poké Tracker</h1>
         </div>
-      </div>
+        <!-- Container for the buttons -->
+        <div class="button-container">
+            <button type="button" class="btn btn-primary">
+                <a href="{{ url_for('html.register') }}" class="register-hover">Register</a>
+            </button>
+            <button type="button" class="btn btn-primary">
+                <a href="{{ url_for('html.login') }}" class="login-hover">Login</a>
+            </button>
+        </div>
+    </div>
+
+    <div class="genbarhome">
+        <div class="tab-navigation">
+            <ul class="tab-menu">
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='1') }}" class="link-light">Gen 1</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='2') }}" class="link-light">Gen 2</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='3') }}" class="link-light">Gen 3</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='4') }}" class="link-light">Gen 4</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='5') }}" class="link-light">Gen 5</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='6') }}" class="link-light">Gen 6</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='7') }}" class="link-light">Gen 7</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='8') }}" class="link-light">Gen 8</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='9') }}" class="link-light">Gen 9</a>
+                    </button>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

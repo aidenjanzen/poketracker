@@ -8,17 +8,29 @@ let error = "{{ error }}"
 alert(error)
 </script>
 {% endif %}
-<h1>Register:</h1>
-<form action="#" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username"/>
-    <label for="password">Password:</label>
-    <input type="password" name="password"/>
-    <button type="submit">Submit</button>
-</form>
 
-<p>Already have an account?</p>
-<button type="button" class="btn btn-primary">
-    <a href="{{ url_for('html.login') }}" class="link-light">Login
-</button>
+<div class="all">
+    <div class="body-login1">
+        <div class="content">
+            <form action="#" method="POST">
+                <h2>Register:</h2>
+                    <div class="input-box">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username"/>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password"/>
+                        <button type="submit" class="btnn">Submit</button>
+                    </div>
+                </form>
+                <p>Already have an account?</p>
+                <button type="button" class="btn btn-primary">
+                    <a href="{{ url_for('html.login') }}" class="link-light">Login
+                </button>
+            </div>
+        </div>
+</div>
+
 {% endblock %}
