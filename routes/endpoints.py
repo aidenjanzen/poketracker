@@ -45,6 +45,9 @@ def logout():
 @web_pages_bp.route("/add", methods=["POST"])
 def add_pokemon():
 
+    if not current_user.is_authenticated:
+        return render_template("register.html")
+
     number = request.form.get("pokemon_number")
     gen_number = request.form.get("gen_number")
 
@@ -79,6 +82,9 @@ def add_pokemon():
 
 @web_pages_bp.route("/remove", methods=["POST"])
 def remove_pokemon():
+    if not current_user.is_authenticated:
+        return render_template("register.html")
+    
     number = request.form.get("pokemon_number")
 
     collection = Collection.query.filter_by(user_id=current_user.id).first()

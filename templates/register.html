@@ -2,6 +2,12 @@
 
 {% block content %}
 
+{% if error %}
+<script>
+let error = "{{ error }}"
+alert(error)
+</script>
+{% endif %}
 <h1>Register:</h1>
 <form action="#" method="POST">
     <label for="username">Username:</label>
@@ -10,4 +16,9 @@
     <input type="password" name="password"/>
     <button type="submit">Submit</button>
 </form>
+
+<p>Already have an account?</p>
+<button type="button" class="btn btn-primary">
+    <a href="{{ url_for('html.login') }}" class="link-light">Login
+</button>
 {% endblock %}
