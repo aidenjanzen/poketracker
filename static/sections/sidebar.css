@@ -1,21 +1,23 @@
 .sidebar {
   position: fixed;
   top: 35%;
-  left: -55px; 
+  left: -55px;
   width: 70px;
   height: 35vh;
-  background-color: rgba(225, 50, 50, 0.8);
+  background-color: red;
   padding-top: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   overflow: hidden;
-  transition: left 0.5s ease; 
+  transition: left 0.5s ease;
+  opacity: 1;
 }
 
 .sidebar:hover {
   left: 0;
+  opacity: 1;
 }
 
 .sidebar::before {
@@ -25,15 +27,20 @@
   left: -20px;
   width: 20px;
   height: 100%;
-  background-color: #f02929cc;
+  background-color: red;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  opacity: 1;
 }
 
 .sidebar ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex; /* Change to flex to evenly space items */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Space items evenly vertically */
+  height: 100%; /* Make the ul fill the entire height of the sidebar */
 }
 
 .sidebar ul li {
