@@ -3,33 +3,75 @@
 {% block content %}
 {% if error %}
 <script>
-let error = "{{ error }}"
-alert(error)
+    let error = "{{ error }}"
+    alert(error)
 </script>
 {% endif %}
 
 <section class="header">
     <div class="textbox">
         <h1>Welcome to your very own Pokedex</h1>
-           <p> 
-            Creating your very own Pokedex allows you to embark on a journey of exploration, discovery, and imagination, unlocking a world where every creature symbolizes endless possibilities and untold adventure
-           </p>
-           <form action="{{ url_for('html.search', pokemon=searchInput) }}" method="GET">
+        <p>
+            Creating your very own Pokedex allows you to embark on a journey of exploration, discovery, and imagination,
+            unlocking a world where every creature symbolizes endless possibilities and untold adventure
+        </p>
+        <form action="{{ url_for('html.search', pokemon=searchInput) }}" method="GET">
             <input type="text" name="query" id="search-pokemon" placeholder="Search for a PokÃ©mon">
             <button type="submit">Search</button>
         </form>
     </div>
+    <div class="genbarhome">
+        <div class="tab-navigation">
+            <ul class="tab-menu">
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='1') }}" class="link-light">Gen 1</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='2') }}" class="link-light">Gen 2</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='3') }}" class="link-light">Gen 3</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='4') }}" class="link-light">Gen 4</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='5') }}" class="link-light">Gen 5</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='6') }}" class="link-light">Gen 6</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='7') }}" class="link-light">Gen 7</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='8') }}" class="link-light">Gen 8</a>
+                    </button>
+                </li>
+                <li class="item">
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ url_for('html.gen', number='9') }}" class="link-light">Gen 9</a>
+                    </button>
+                </li>
+                <br>
+            </ul>
+        </div>
+        </div>
+    </div>
 </section>
-
-<h1>LOGIN CHECK BELOW</h1>
-
-{% if current_user.is_authenticated %}
-<h1>You are logged in</h1>
-<button type="button" class="btn btn-primary">
-    <a href="{{ url_for('html.logout') }}" class="link-light">Logout</a>
-</button>
-{% else %}
-<h1>You are not logged in</h1>
-{% endif %}
-
 {% endblock %}

@@ -12,11 +12,11 @@ web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
 def base():
-    return render_template("home.html")
+    return render_template("home.html", current_page="home")
 
 @web_pages_bp.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", current_page="home")
 
 @web_pages_bp.route("/search")
 def search():

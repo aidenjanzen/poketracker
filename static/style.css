@@ -105,9 +105,15 @@ section {
     transition: 0.5s ease;
 } */
 
+.genbarhome{
+    padding-top: 600px;
+    padding-bottom: 250px;
+}
+
+
 .containter{
     margin: 0;
-    padding: 25px;
+    padding: 0px;
     box-sizing: border-box;
     background-color: var(--first-color);
     position: relative;
@@ -115,7 +121,7 @@ section {
 }
 .tab-nav-bar {
     position: relative;
-    margin: 65px 10px 40px 10px;
+    margin: 10px 10px 40px 10px;
 }
 
 .tab-navigation {
