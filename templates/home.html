@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+{% if error %}
+<script>
+let error = "{{ error }}"
+alert(error)
+</script>
+{% endif %}
 
 <section class="header">
     <div class="textbox">

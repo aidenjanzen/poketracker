@@ -1,12 +1,15 @@
 from flask import Blueprint, jsonify, request, url_for, redirect, render_template
 from database import db
 from models import Users
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 
 api_login_bp = Blueprint("api_login", __name__)
 
 @api_login_bp.route('/login', methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        return render_template("home.html", error="Already logged in.")
+
     if request.method == "POST":
         username = request.form.get("username")
         if username == "":
