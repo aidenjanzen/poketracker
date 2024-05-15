@@ -19,7 +19,6 @@ class Collection(db.Model):
 
 class Pokemon(db.Model):
     number = mapped_column(Integer, primary_key=True)
-    # collection_id = mapped_column(Integer, ForeignKey(Collection.id), nullable=False)
     collections = relationship("PokeCollection")
 
 class PokeCollection(db.Model):
@@ -27,4 +26,4 @@ class PokeCollection(db.Model):
     collection_id = mapped_column(Integer, ForeignKey(Collection.id), nullable=False)
     pokemon_number = mapped_column(Integer, ForeignKey(Pokemon.number), nullable=False)
     collections = relationship("Collection")
-    pokemon = relationship("Pokemon", back_populates="collections")  # back populates
+    pokemon = relationship("Pokemon", back_populates="collections")
