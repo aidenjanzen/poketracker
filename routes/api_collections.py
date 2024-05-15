@@ -10,18 +10,15 @@ api_collections_bp = Blueprint("api_collections", __name__)
 
 @api_collections_bp.route("/collections")
 def get_collection():
-
-    # id = current_user.id
-
-    # request = db.session.execute(db.select(PokeCollection).where(PokeCollection.collection_id == id)).order_by(PokeCollection.pokemon_number)
-    
-
     collection_id = current_user.collections[0].id
 
-    # Query PokeCollection based on the collection ID
     request = db.session.execute(
         db.select(PokeCollection).where(PokeCollection.collection_id == collection_id)
         .order_by(PokeCollection.pokemon_number)
     )
     results = request.scalars()
+    # temp = []
+    # for i in results:
+    #     temp.append(i.pokemon_number)
+    # print(temp)
     return render_template('./collections.html', pokemon=results, pokedex=pokedex)

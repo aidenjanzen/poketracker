@@ -64,7 +64,6 @@ def add_pokemon():
         PokeCollection.collection_id == collection.id, 
         PokeCollection.pokemon_number==number
         )).first()
-    # existing_pokemon = PokeCollection.query.filter_by(collection_id=collection.id, pokemon_number=number).first()
     if exist:
         return redirect(url_for('html.gen', number=gen_number))
 
@@ -85,32 +84,16 @@ def add_pokemon():
 
 @web_pages_bp.route("/remove", methods=["POST"])
 def remove_pokemon():
-    # number = request.form.get("pokemon_number")
-    # gen_number = request.form.get("gen_number")
+    number = request.form.get("pokemon_number")
 
-    # collection = Collection.query.filter_by(user_id=current_user.id).first()
-    # if not collection:
-    #     collection = Collection(user_id=current_user.id)
-    #     db.session.add(collection)
-    #     db.session.commit()
+    collection = Collection.query.filter_by(user_id=current_user.id).first()
 
+    exist = db.session.execute(db.select(PokeCollection).where(
+        PokeCollection.collection_id == collection.id, 
+        PokeCollection.pokemon_number==number
+        )).scalar()
 
-    # exist = db.session.execute(db.select(PokeCollection).where(
-    #     PokeCollection.collection_id == collection.id, 
-    #     PokeCollection.pokemon_number==number
-    #     )).first()
-    # # existing_pokemon = PokeCollection.query.filter_by(collection_id=collection.id, pokemon_number=number).first()
-    # if exist:
-    #     return redirect(url_for('html.gen', number=gen_number))
-
-    # pokemon = db.select(Pokemon).where(Pokemon.number == number)
-    # addPokemon = db.session.execute(pokemon).scalar()
-    # if addPokemon == None:
-    #     pokemon = Pokemon(number=number)
-    #     db.session.add(pokemon)
-
-    # pokecollection = PokeCollection(collection_id=collection.id, pokemon_number=number)
-    # db.session.add(pokecollection)
-
-    # db.session.commit()
+    db.session.delete(exist)
+    db.session.commit()
+ 
     return redirect(url_for('api_collections.get_collection'))

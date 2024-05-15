@@ -2,11 +2,7 @@
 
 {% block content %}
 
-<p>The Pokemon you are missing are:</p>
-{% for i in pokemon %}
-<p>
-    {{ i.pokemon_number }}
-</p>
+<h1>The Pokemon you are missing are:</h1>
 
 <div class="pokePage">
     {% for i in pokemon %}
@@ -40,5 +36,4 @@
     {% endfor %}
   </div>
 
-{%endfor%} 
 {% endblock %}
