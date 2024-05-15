@@ -40,7 +40,7 @@ def login():
 @web_pages_bp.route("/logout")
 def logout():
     logout_user()
-    return render_template("home.html")
+    return render_template("home.html", current_page="home")
 
 @web_pages_bp.route("/add", methods=["POST"])
 def add_pokemon():
