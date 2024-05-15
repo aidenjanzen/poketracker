@@ -1,6 +1,8 @@
 /* @import url("sections/sidebar.css");
 @import url("sections/gen-filter.css"); */
 
+@import url("sections/cards.css");
+
 body {
     margin: 0;
     padding: 0;
@@ -18,7 +20,6 @@ body {
     position: relative;
     z-index: 1;
 }
-
 
 .textbox {
     width: 90%;
@@ -234,43 +235,57 @@ section {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Optional: dim the background */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
 }
+
 [id^=modal]:target {
-    display: block;
+    display: flex;
 }
-input[type=checkbox] {
-    position: absolute;
-    clip: rect(0 0 0 0);
-}
-.popup {
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-}
-.popup__overlay {
-    position: fixed;
-    z-index: 1;
-    display: block;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: #000000b3;
-}
+
 .popup__wrapper {
-    position: fixed;
-    z-index: 9;
-    width: 80%;
-    max-width: 1200px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    padding: 58px 32px 32px 32px;
+    position: relative;
+    width: 600px;
+    height: 600px; /* Ensures the popup is square */
     background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
+
+.popup__wrapper .pokeSprite {
+    width: 300px; 
+    height: auto; 
+    font-size: larger;
+  }
+  
+
 .popup__close {
     position: absolute;
-    top: 16px;
-    right: 26px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    color: #000;
+}
+
+.popup__close:hover {
+    color: #ff0000; /* Optional: change color on hover */
+}
+
+.pokeImage {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.pokemon-details {
+    font-size: 14px;
+    line-height: 1.5;
 }
