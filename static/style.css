@@ -469,3 +469,36 @@ LOGIN/REGISTER
   margin-bottom: 30px;
   padding: 10px;
 }
+
+/*
+COLLECTIONS PAGE
+*/
+
+.missingH1 {
+  color: black;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 500px;
+  height: 30px;
+  text-align: center;
+}
+
+.removePokemon {
+  cursor: pointer;
+  list-style: none;
+  background: #ed5564;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+}
