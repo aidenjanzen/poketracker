@@ -492,13 +492,13 @@ COLLECTIONS PAGE
 .removePokemon {
   cursor: pointer;
   list-style: none;
-  background: #ed5564;
+  background: white;
   padding: 10px;
   border-radius: 15px;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  color: white;
+  color: #ed5564;
   text-decoration: none;
 }
