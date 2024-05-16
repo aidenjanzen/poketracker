@@ -82,7 +82,12 @@ body {
   align-items: center;
   justify-content: left;
   padding-left: 150px;
-  /* justify-content: center; */
+  transition: transform 0.3s ease, outline-color 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-5px);
+  text-shadow: 0 0 15px white;
 }
 
 .logo h1 {
