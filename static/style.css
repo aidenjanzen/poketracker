@@ -54,9 +54,8 @@ body {
 
 .button-container button:hover {
   background-color: white;
-  color: #558ccc;
+  color: #ed5564;
 }
-
 .register-hover {
   text-decoration: none;
   color: white;
@@ -116,22 +115,24 @@ body {
 }
 
 .pokeImage {
-  width: 200px;
+  width: 400px;
   height: auto;
 }
 .pokeDiv {
-  width: 200px;
+  width: 210px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 .pokePage {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: auto;
-  height: auto;
+  width: 100%;
 }
 
 :root {
@@ -160,7 +161,7 @@ body {
 .genHome {
   background-color: white;
   text-decoration: none;
-  border-radius: 7px;
+  border-radius: 50px;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -168,12 +169,28 @@ body {
   color: black;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-color: black;
+  border: 10px;
+  padding: 10px;
+}
+
+.genbarbase {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.genHome:hover,
+.genCSS:hover {
+  background-color: #558ccc;
+  color: white;
 }
 
 .genCSS {
   background-color: white;
   text-decoration: none;
-  border-radius: 7px;
+  border-radius: 50px;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -181,6 +198,11 @@ body {
   color: black;
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-color: black;
+  border: 10px;
+  padding: 10px;
 }
 
 .gen-textbox {
@@ -197,18 +219,10 @@ body {
   height: 30px;
 }
 
-.containter {
-  margin: 0;
-  padding: 0px;
-  box-sizing: border-box;
-  background-color: var(--first-color);
-  position: relative;
-}
-
-.tab-nav-bar {
+/* .tab-nav-bar {
   position: relative;
   margin: 10px 10px 40px 10px;
-}
+} */
 
 .tab-navigation {
   position: relative;
@@ -247,7 +261,7 @@ body {
   user-select: none;
 }
 
-.item {
+/* .item {
   color: var(--text-color);
   display: inline-block;
   font-size: 1em;
@@ -256,8 +270,12 @@ body {
   padding: 10px 20px;
   border-radius: 30px;
   background: var(--second-color);
-  cursor: pointer;
+  cursor: default;
   user-select: none;
+} */
+
+.item-list {
+  display: inline-block;
 }
 
 /*
@@ -350,7 +368,8 @@ POKEMON AND CARD DETAILS
   font-style: normal;
   color: white;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transition effect for background color and text color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Transition effect for background color and text color */
 }
 
 .addCollection:hover {
@@ -371,6 +390,7 @@ POKEMON AND CARD DETAILS
 
 .outsideInfoButton {
   background-color: white;
+  padding-top: 10px;
 }
 
 .popup__wrapper .pokeSprite {
@@ -467,6 +487,19 @@ LOGIN/REGISTER
   box-sizing: 30px;
   font-size: 16px;
   color: #fff;
+}
+
+.input-box-home {
+  background: rgba(0, 0, 0, 0.1);
+  height: 310px;
+  width: 410px;
+  border: 2px solid rgba(255, 255, 255, 2);
+  backdrop-filter: blur(04px);
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin: auto;
+  border: solid;
 }
 
 .btnn {
