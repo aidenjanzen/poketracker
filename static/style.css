@@ -415,7 +415,7 @@ LOGIN/REGISTER
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(/static/assests/login-bg2.jpg);
+  background: url(/static/assests/login-bg2_upscaled.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -426,7 +426,7 @@ LOGIN/REGISTER
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(/static/assests/register-bg.jpg);
+  background: url(/static/assests/registerWallpaper_upscaled.jpg);
   background-size: cover;
   background-position: center;
 }
