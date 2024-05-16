@@ -2,12 +2,17 @@
 
 {% block content %}
 
-{% if error %}
-<script>
-let error = "{{ error }}"
-alert(error)
-</script>
-{% endif %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <script>
+        let message = "{{ message }}"
+        alert(message)
+    </script>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 
 <div class="all">
     <div class="body-login1">

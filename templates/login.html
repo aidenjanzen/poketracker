@@ -1,11 +1,15 @@
 {% extends "base.html" %} 
 {% block content %} 
-{% if error %}
-<script>
-  let error = "{{ error }}";
-  alert(error);
-</script>
-{% endif %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+      <script>
+          let message = "{{ message }}"
+          alert(message)
+      </script>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
 <div class="all">
   <div class="body-login">
       <div class="content">
@@ -23,6 +27,10 @@
               <button type="submit" class="btnn">Login</button>
               </div>
           </form>
+          <p>Don't have an account?</p>
+                <button type="button" class="btn btn-primary">
+                    <a href="{{ url_for('html.register') }}" class="link-light">Register
+                </button>
       </div>
   </div>
 </div>

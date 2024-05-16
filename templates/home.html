@@ -1,10 +1,15 @@
-{% extends "base.html" %} {% block content %} {% if error %}
-<script>
-    let error = "{{ error }}";
-    alert(error);
-</script>
-{% endif %}
-
+{% extends "base.html" %} 
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    <script>
+        let message = "{{ message }}"
+        alert(message)
+    </script>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 <section class="header">
     <div class="textbox">
         <div class="logo">
@@ -13,10 +18,10 @@
         </div>
         <!-- Container for the buttons -->
         <div class="button-container">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="homebutton">
                 <a href="{{ url_for('html.register') }}" class="register-hover">Register</a>
             </button>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="homebutton">
                 <a href="{{ url_for('html.login') }}" class="login-hover">Login</a>
             </button>
         </div>

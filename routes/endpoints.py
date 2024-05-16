@@ -1,6 +1,6 @@
 from database import db
 from flask import Blueprint
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask import Flask, render_template, jsonify, request, redirect, url_for, flash
 from models import Users, Collection, PokeCollection, Pokemon
 from flask_login import login_user, logout_user, current_user
 import requests
@@ -12,11 +12,11 @@ web_pages_bp = Blueprint("html", __name__)
 
 @web_pages_bp.route("/")
 def base():
-    return render_template("home.html", current_page="home")
+    return render_template("home.html", current_page="nogen")
 
 @web_pages_bp.route("/home")
 def home():
-    return render_template("home.html", current_page="home")
+    return render_template("home.html", current_page="nogen")
 
 @web_pages_bp.route("/search")
 def search():
@@ -31,22 +31,23 @@ def gen(number):
 
 @web_pages_bp.route("/register")
 def register():
-    return render_template("register.html")
+    return render_template("register.html", current_page="nogen")
 
 @web_pages_bp.route("/login")
 def login():
-    return render_template("login.html")
+    return render_template("login.html", current_page="nogen")
 
 @web_pages_bp.route("/logout")
 def logout():
     logout_user()
-    return render_template("home.html", current_page="home")
+    return render_template("home.html", current_page="nogen")
 
 @web_pages_bp.route("/add", methods=["POST"])
 def add_pokemon():
 
     if not current_user.is_authenticated:
-        return render_template("register.html")
+        flash("You are not logged in.")
+        return redirect(url_for('html.login'))
 
     number = request.form.get("pokemon_number")
     gen_number = request.form.get("gen_number")
@@ -83,7 +84,8 @@ def add_pokemon():
 @web_pages_bp.route("/remove", methods=["POST"])
 def remove_pokemon():
     if not current_user.is_authenticated:
-        return render_template("register.html")
+        flash("You are not logged in.")
+        return redirect(url_for('html.login'))
     
     number = request.form.get("pokemon_number")
 

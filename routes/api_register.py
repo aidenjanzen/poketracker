@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, url_for, redirect, render_template
+from flask import Blueprint, jsonify, request, url_for, redirect, render_template, flash
 from database import db
 from models import Users
 from flask_login import login_user
@@ -9,21 +9,24 @@ def register():
     if request.method == "POST":
         username = request.form.get("username")
         if username == "":
-            return render_template("register.html", error="Please enter a username")
+            flash("Please enter a username.")
+            return redirect(url_for("html.register"))
         
         password = request.form.get("password")
         if password == "":
-            return render_template("register.html", error="Please enter a password")
+            flash("Please enter a password.")
+            return redirect(url_for("html.register"))
 
         check = db.select(Users).where(Users.username == username)
         result = db.session.execute(check).scalar()
         if result:
-            return render_template("login.html", error="User already exists, please login.")
+            flash("User already exists, please login.")
+            return redirect(url_for("html.login"))
         
         user = Users(username=username, password=password)
         
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for("html.login", error=None))
+        return redirect(url_for("html.login"))
     return render_template("register.html")
