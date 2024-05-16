@@ -1,7 +1,8 @@
 from app import app
-from models import Users
+from models import Users, Pokemon, PokeCollection, Collection
 from database import db
 import pytest
+from pokedex import pokedex
 
 def test_connection():
     response = app.test_client().get('/')
@@ -13,6 +14,15 @@ def test_user():
     user.password = "badpassword"
     assert isinstance(user.username, str)
     assert isinstance(user.password, str)
+
+def test_pokemon():
+    pokemon = Pokemon
+    pokemon.number = 6
+    assert pokedex[pokemon.number]["name"] == "Charizard"
+    assert "Fire" in pokedex[pokemon.number]["type"]
+
+def test_collection(): #not sure how but should create a user, foreign key that user to the collection and call collection for its id
+    collection = Collection
 
 def test_database():
     pass
