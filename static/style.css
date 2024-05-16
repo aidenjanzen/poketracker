@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #fff0de;
+  background-color: #558ccc;
 }
 
 .header {
@@ -22,12 +22,6 @@ body {
   z-index: 1;
   overflow: hidden;
 }
-
-.gen-textbox {
-  font-size: xx-large;
-  padding-top: 10px;
-}
-
 
 .textbox {
   display: flex;
@@ -64,9 +58,7 @@ body {
   background-color: white;
   color: #558ccc;
 }
-.homebutton {
-  display: inline-block;
-}
+
 .register-hover {
   text-decoration: none;
   color: white;
@@ -84,10 +76,6 @@ body {
   text-decoration: none;
   color: white;
 }
-
-/* .button-container button:hover {
-  background-color: white; 
-} */
 
 .logo {
   display: flex;
@@ -123,24 +111,6 @@ body {
   align-items: center;
 }
 
-#search-pokemon {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  border: 1px solid white;
-  padding: 12px 34px;
-  font-size: 13p;
-  background: transparent;
-  position: relative;
-  cursor: pointer;
-}
-
-#search-pokemon:hover {
-  border: 1px solid rgba(240, 41, 41, 0.8);
-  background-color: rgba(240, 41, 41, 0.8);
-  transition: 1s;
-}
-
 .pokeImage {
   width: 200px;
   height: auto;
@@ -162,23 +132,59 @@ body {
 
 :root {
   --first-color: #2e2e41;
-  --second-color: #5b85ff;
-  --third-color: #434354;
-  --text-color: #fff;
+  --second-color: #ed5564;
+  --third-color: #ffcc00;
+  --text-color: #558ccc;
 
   --box-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
   --text-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
 }
-/* 
-section {
-    position: relative;
-    margin: 0 80px;
-    transition: 0.5s ease;
-} */
+
+.link-light {
+  color: black;
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .genbarhome {
   padding-top: 600px;
   padding-bottom: 250px;
+}
+
+.genHome {
+  background-color: white;
+  text-decoration: none;
+  border-radius: 7px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+}
+
+.genCSS {
+  background-color: white;
+  text-decoration: none;
+  border-radius: 7px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+}
+
+.gen-textbox {
+  color: black;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 30px;
 }
 
 .containter {
@@ -188,6 +194,7 @@ section {
   background-color: var(--first-color);
   position: relative;
 }
+
 .tab-nav-bar {
   position: relative;
   margin: 10px 10px 40px 10px;
@@ -201,11 +208,12 @@ section {
   max-width: fit-content;
   margin: 0 auto;
 }
+
 .tab-menu {
   color: var(--text-color);
   list-style: none;
   background: var(--third-color);
-  max-width: 800px;
+  max-width: 1000px;
   padding: 10px;
   white-space: nowrap;
   border-bottom: 1px solid var(--thrid-color);
@@ -213,10 +221,6 @@ section {
   box-shadow: var(--box-shadow);
   overflow-x: auto;
   user-select: none;
-}
-
-.tab-menu::-webkit-scrollbar{
-    display: none;
 }
 
 .item {
@@ -231,6 +235,10 @@ section {
   cursor: pointer;
   user-select: none;
 }
+
+/*
+SIDEBAR
+*/
 
 .sidebar button {
   width: 35px;
@@ -270,16 +278,10 @@ section {
   height: 100%; /* Make the ul fill the entire height of the sidebar */
 }
 
-.infobutton {
-  /* to change how the info button looks */
-  display: inline-block;
-  /* border: 1px solid;
-    border-color: #012766;
-    background: #012766;
-    padding: 10px 16px;
-    border-radius: 4px;
-    color: #ffffff; */
-}
+/* 
+POKEMON AND CARD DETAILS 
+*/
+
 [id^="modal"] {
   display: none;
   position: fixed;
@@ -300,12 +302,45 @@ section {
 .popup__wrapper {
   position: relative;
   width: 600px;
-  height: 600px; /* Ensures the popup is square */
+  height: 600px;
   background: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+}
+
+.genSection {
+  background-color: #558ccc;
+}
+
+.infobutton {
+  cursor: pointer;
+  list-style: none;
+  background: #ed5564;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition effect for background color and text color */
+}
+
+/* .infobutton:hover {
+  background-color: white;
+  color: #ed5564;
+} */
+
+.infobutton a {
+  background-color: white;
+  color: #ed5564;
+}
+
+.outsideInfoButton {
+  background-color: white;
 }
 
 .popup__wrapper .pokeSprite {
@@ -334,15 +369,10 @@ section {
   margin-bottom: 10px;
 }
 
-.pokemon-details {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-
-
-/* login stuff */
-.all{
+/* 
+LOGIN/REGISTER
+ */
+.all {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -374,7 +404,7 @@ section {
   background-position: center;
 }
 .content {
-  background: rgba(0, 0, 0, 0.1); 
+  background: rgba(0, 0, 0, 0.1);
   height: 310px;
   width: 410px;
   border: 2px solid rgba(255, 255, 255, 2);
@@ -385,7 +415,7 @@ section {
   margin: auto;
 }
 
-.content h2{
+.content h2 {
   font-size: 38px;
   font-weight: 800;
   text-align: center;
@@ -396,7 +426,7 @@ section {
   width: 100%;
   height: 45px;
   margin: 30px 0;
-  padding: 5 15px ;
+  padding: 5 15px;
 }
 
 .input-box input {
@@ -418,9 +448,8 @@ section {
   font-size: 16px;
   height: 45px;
   font-weight: 600;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   margin-bottom: 30px;
   padding: 10px;
-
 }
