@@ -345,6 +345,12 @@ POKEMON AND CARD DETAILS
   transition: background-color 0.3s ease, color 0.3s ease; /* Transition effect for background color and text color */
 }
 
+.addCollection:hover {
+  background-color: #ffcc00;
+  color: white;
+  text-shadow: 0 0 10px black; /* Adjust the shadow size and color as needed */
+}
+
 /* .infobutton:hover {
   background-color: white;
   color: #ed5564;
