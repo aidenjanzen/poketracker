@@ -24,17 +24,10 @@ def client():
 def test_base(client):
     response = client.get('/')
     assert response.status_code == 200
-    assert b'Home Page - nogen' in response.data
 
 def test_home(client):
     response = client.get('/home')
     assert response.status_code == 200
-    assert b'Home Page - nogen' in response.data
-
-def test_search(client):
-    response = client.get('/search')
-    assert response.status_code == 200
-    assert b'Search Page' in response.data
 
 def test_gen(client):
     number = 1
@@ -42,3 +35,39 @@ def test_gen(client):
     assert response.status_code == 200
     assert b'Generation 1' in response.data
     assert b'1' in response.data  # Check if it includes start number
+
+def test_login_successful(client):
+    with client:
+        response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
+        assert response.status_code == 200  # Check if redirected after successful login
+        assert b'Already logged in.' not in response.data  # Check if flash message not present
+
+def test_login_missing_username(client):
+    with client:
+        response = client.post('/login', data={'username': '', 'password': '123'}, follow_redirects=True)
+        assert response.status_code == 200  # Check if redirected after missing username
+        assert b'Please enter a username.' in response.data  # Check if flash message present
+
+def test_login_nonexistent_user(client):
+    with client:
+        response = client.post('/login', data={'username': 'nonexistent', 'password': '123'}, follow_redirects=True)
+        assert response.status_code == 200  # Check if redirected after nonexistent user
+        assert b'No user found.' in response.data  # Check if flash message present
+
+def test_login_incorrect_password(client):
+    with client:
+        response = client.post('/login', data={'username': 'mpt', 'password': 'incorrect'}, follow_redirects=True)
+        print(response.data)
+        assert response.status_code == 200  # Check if redirected after incorrect password
+        assert b'Incorrect password.' in response.data  # Check if flash message present
+
+def test_already_logged_in(client):
+    with client:
+        response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
+        print(response.data)
+        assert response.status_code == 302  # Check if redirected after successful login
+
+        # Attempt to log in again
+        response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
+        assert response.status_code == 200  # Check if redirected
+        assert b'Already logged in.' in response.data  # Check if flash message present

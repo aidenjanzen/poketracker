@@ -19,7 +19,7 @@ def login():
         
         user = Users.query.filter_by(username=username).first()
         if user==None:
-            flash("No user found")
+            flash("No user found.")
             return redirect(url_for("html.register"))
         
         password = request.form.get("password")
@@ -34,3 +34,4 @@ def login():
             flash("Incorrect password.")
             return redirect(url_for("html.login"))
     return redirect(url_for("html.login"))
+
