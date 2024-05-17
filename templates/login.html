@@ -1,37 +1,31 @@
-{% extends "base.html" %} 
-{% block content %} 
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-      {% for message in messages %}
-      <script>
-          let message = "{{ message }}"
-          alert(message)
-      </script>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
+{% extends "base.html" %} {% block content %} {% with messages =
+get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<script>
+  let message = "{{ message }}";
+  alert(message);
+</script>
+{% endfor %} {% endif %} {% endwith %}
 <div class="all">
   <div class="body-login">
-      <div class="content">
-          <form action="#" method="POST">
-              <h2>Login:</h2>
-              <div class="input-box">
+    <div class="content">
+      <form action="#" method="POST">
+        <h2>Login:</h2>
+        <div class="input-box">
+          <label for="username">Username:</label>
+          <input type="text" name="username" />
+        </div>
 
-              <label for="username">Username:</label>
-              <input type="text" name="username"/>
-              </div>
-
-              <div class="input-box">
-              <label for="password">Password:</label>
-              <input type="password" name="password"/>
-              <button type="submit" class="btnn">Login</button>
-              </div>
-          </form>
-          <p>Don't have an account?</p>
-                <button type="button" class="btn btn-primary">
-                    <a href="{{ url_for('html.register') }}" class="link-light">Register
-                </button>
-      </div>
+        <div class="input-box">
+          <label for="password">Password:</label>
+          <input type="password" name="password" />
+          <button type="submit" class="login-btn">Login</button>
+        </div>
+      </form>
+      <p class="loginP">Don't have an account?</p>
+      <a href="{{ url_for('html.register') }}" class="reg-login">
+        <button type="button" class="login-reg-btn">Register</button>
+      </a>
+    </div>
   </div>
 </div>
 

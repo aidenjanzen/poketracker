@@ -10,13 +10,38 @@ body {
   background-color: #558ccc;
 }
 
+.homePage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Send the image to the back */
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black; /* Add a border around the content */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; /* Add some margin for spacing and auto for horizontal centering */
+  overflow: hidden; /* Make the box unscrollable */
+  max-width: 60%; /* Set maximum width */
+  max-height: 60vh; /* Set maximum height */
+  margin-top: 50px;
+  padding-top: 100px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 2);
+}
+
 .header {
   min-height: 100vh;
   max-height: 100vh;
   width: 100%;
-  /* background-image: url("/static/assests/homePage2-transformed.jpeg"); */
   background-size: cover;
-  background-color: #558ccc;
+  /* background-color: #558ccc; */
   background-position: right;
   position: relative;
   z-index: 1;
@@ -78,7 +103,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 100px;
   transition: transform 0.3s ease, outline-color 0.3s ease;
+  text-shadow: 0 0 10px white;
 }
 
 .logo:hover {
@@ -145,14 +172,8 @@ body {
   --text-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
 }
 
-.link-light {
-  color: black;
-  font-size: 9px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .genbarhome {
-  padding-top: 600px;
+  padding-top: 500px;
   padding-bottom: 250px;
   display: flex;
   justify-content: center;
@@ -284,17 +305,18 @@ SIDEBAR
 
 .sidebar button {
   width: 35px;
+  padding-right: 10px;
 }
 
 .sidebar {
   position: fixed;
-  top: 35%;
+  top: 40%;
   left: -35px;
   width: 50px;
   /* height: 35vh; */
   background-color: #ed5564;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 0;
@@ -455,14 +477,12 @@ LOGIN/REGISTER
 }
 .content {
   background: rgba(0, 0, 0, 0.1);
-  height: 310px;
-  width: 410px;
   border: 2px solid rgba(255, 255, 255, 2);
   backdrop-filter: blur(04px);
   color: #fff;
   border-radius: 12px;
   padding: 30px;
-  margin: auto;
+  margin: auto; /* Center horizontally */
 }
 
 .content h2 {
@@ -477,6 +497,7 @@ LOGIN/REGISTER
   height: 45px;
   margin: 30px 0;
   padding: 5 15px;
+  padding-bottom: 10px;
 }
 
 .input-box input {
@@ -502,10 +523,26 @@ LOGIN/REGISTER
   border: solid;
 }
 
-.btnn {
+.btn {
   display: inline-block;
   background: #fff;
   color: #0a2862;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 45px;
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding-right: 25px;
+  flex-direction: column;
+}
+
+.login-btn {
+  display: inline-block;
+  background: #fff;
+  color: #ed5564;
   width: 100%;
   border-radius: 30px;
   font-size: 16px;
@@ -513,8 +550,64 @@ LOGIN/REGISTER
   font-weight: 600;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin-bottom: 30px;
+  /* margin-bottom: 40px; */
   padding: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: #ed5564;
+  color: white;
+}
+
+.loginP {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.login-reg-btn {
+  display: inline-block;
+  background: #fff;
+  color: #ed5564;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 16px;
+  height: 45px;
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  /* margin-bottom: 40px; */
+  padding: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.login-reg-btn:hover {
+  background-color: #ed5564;
+  color: white;
+}
+
+.already-p {
+  margin-bottom: 25px;
+}
+
+.register-btn {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  /* padding: 10px 20px; */
+  background-color: white;
+  color: #ed5564;
+  text-align: center;
+  text-decoration: none;
+  /* border: 2px solid #007bff; */
+  border-radius: 5px;
+  /* margin-top: 20px; */
 }
 
 /*
