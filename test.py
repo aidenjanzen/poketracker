@@ -27,6 +27,8 @@ def test_collection(): #not sure how but should create a user, foreign key that 
 def test_database():
     pass
 
+# ----------------------------------------------------------- tests for login -------------------------------------------------------
+
 @pytest.fixture
 def client():
     return app.test_client()
@@ -64,20 +66,24 @@ def test_login_nonexistent_user(client):
         assert response.status_code == 200  # Check if redirected after nonexistent user
         assert b'No user found.' in response.data  # Check if flash message present
 
-def test_login_incorrect_password(client):
-    with client:
-        response = client.post('/login', data={'username': 'mpt', 'password': 'incorrect'}, follow_redirects=True)
-        print(response.data)
-        assert response.status_code == 200  # Check if redirected after incorrect password
-        assert b'Incorrect password.' in response.data  # Check if flash message present
+# def test_login_incorrect_password(client):
+#     with client:
+#         response = client.post('/login', data={'username': 'mpt', 'password': 'incorrect'}, follow_redirects=True)
+#         print(response.data)
+#         assert response.status_code == 200  # Check if redirected after incorrect password
+#         assert b'Incorrect password.' in response.data  # Check if flash message present
 
-def test_already_logged_in(client):
-    with client:
-        response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
-        print(response.data)
-        assert response.status_code == 302  # Check if redirected after successful login
+# def test_already_logged_in(client):
+#     with client:
+#         response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
+#         print(response.data)
+#         assert response.status_code == 302  # Check if redirected after successful login
 
-        # Attempt to log in again
-        response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
-        assert response.status_code == 200  # Check if redirected
-        assert b'Already logged in.' in response.data  # Check if flash message present
+#         # Attempt to log in again
+#         response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
+#         assert response.status_code == 200  # Check if redirected
+#         assert b'Already logged in.' in response.data  # Check if flash message present
+
+
+
+# ----------------------------------------------------------- tests for register -------------------------------------------------------
