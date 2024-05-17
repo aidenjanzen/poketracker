@@ -1,81 +1,89 @@
-{% extends "base.html" %} 
-{% block content %}
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-    <script>
-        let message = "{{ message }}"
-        alert(message)
-    </script>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
-<section class="header">
-    <div class="textbox">
-        <div class="logo">
-            <img class="pokeball" src="/static/assests/pokeball-pokemon-svgrepo-com.svg" alt="Pokeball Logo" />
+{% extends "base.html" %} {% block content %}
+<img class="homePage" src="/static/assests/homePage.jpg" alt="" />
+<div class="content-wrapper">
+  {% with messages = get_flashed_messages() %} {% if messages %} {% for message
+  in messages %}
+  <script>
+    let message = "{{ message }}";
+    alert(message);
+  </script>
+  {% endfor %} {% endif %} {% endwith %}
+  <section class="header">
+    <div class="content-home">
+      <div class="input-text-home">
+        <div class="textbox">
+          <div class="logo">
+            <img
+              class="pokeball"
+              src="/static/assests/pokeball-pokemon-svgrepo-com.svg"
+              alt="Pokeball Logo"
+            />
             <h1>Poké Tracker</h1>
+          </div>
+          <!-- Container for the buttons -->
+          <div class="button-container">
+            <a href="{{ url_for('html.register') }}" class="register-hover">
+              <button type="button" class="homebutton">Register</button>
+            </a>
+            <a href="{{ url_for('html.login') }}" class="login-hover">
+              <button type="button" class="homebutton">Login</button>
+            </a>
+          </div>
         </div>
-        <!-- Container for the buttons -->
-        <div class="button-container">
-            <button type="button" class="homebutton">
-                <a href="{{ url_for('html.register') }}" class="register-hover">Register</a>
-            </button>
-            <button type="button" class="homebutton">
-                <a href="{{ url_for('html.login') }}" class="login-hover">Login</a>
-            </button>
-        </div>
-    </div>
 
-    <div class="genbarhome">
-        <div class="tab-navigation">
-            <ul class="tab-menu">
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='1') }}" class="link-light">Gen 1</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='2') }}" class="link-light">Gen 2</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='3') }}" class="link-light">Gen 3</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='4') }}" class="link-light">Gen 4</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='5') }}" class="link-light">Gen 5</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='6') }}" class="link-light">Gen 6</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='7') }}" class="link-light">Gen 7</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='8') }}" class="link-light">Gen 8</a>
-                    </button>
-                </li>
-                <li class="item">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ url_for('html.gen', number='9') }}" class="link-light">Gen 9</a>
-                    </button>
+        <div class="genbarhome">
+          <div class="tab-navigation">
+            <ul class="tab-menu-home">
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='1') }}" class="genHome"
+                  >Gen 1</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='2') }}" class="genHome"
+                  >Gen 2</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='3') }}" class="genHome"
+                  >Gen 3</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='4') }}" class="genHome"
+                  >Gen 4</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='5') }}" class="genHome"
+                  >Gen 5</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='6') }}" class="genHome"
+                  >Gen 6</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='7') }}" class="genHome"
+                  >Gen 7</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='8') }}" class="genHome"
+                  >Gen 8</a
+                >
+              </li>
+              <li class="item-list">
+                <a href="{{ url_for('html.gen', number='9') }}" class="genHome"
+                  >Gen 9</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
-</section>
-
+  </section>
+</div>
 {% endblock %}

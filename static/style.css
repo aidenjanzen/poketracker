@@ -7,27 +7,46 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #fff0de;
+  background-color: #558ccc;
+}
+
+.homePage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Send the image to the back */
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black; /* Add a border around the content */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto; /* Add some margin for spacing and auto for horizontal centering */
+  overflow: hidden; /* Make the box unscrollable */
+  max-width: 60%; /* Set maximum width */
+  max-height: 60vh; /* Set maximum height */
+  margin-top: 50px;
+  padding-top: 100px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 255, 255, 2);
 }
 
 .header {
   min-height: 100vh;
   max-height: 100vh;
   width: 100%;
-  background-image: url("/static/assests/homePage.jpg");
   background-size: cover;
-  background-color: #f0f0f0;
+  /* background-color: #558ccc; */
   background-position: right;
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
-
-.gen-textbox {
-  font-size: xx-large;
-  padding-top: 10px;
-}
-
 
 .textbox {
   display: flex;
@@ -42,9 +61,7 @@ body {
 
 .button-container {
   display: flex;
-  justify-content: left; /* Align buttons to the left */
-  margin-top: 20px; /* Adjust top margin as needed */
-  padding-left: 400px; /* Adjust left padding as needed */
+  justify-content: center; /* Align buttons to the left */
 }
 
 .button-container button {
@@ -62,10 +79,7 @@ body {
 
 .button-container button:hover {
   background-color: white;
-  color: #558ccc;
-}
-.homebutton {
-  display: inline-block;
+  color: #ed5564;
 }
 .register-hover {
   text-decoration: none;
@@ -85,29 +99,33 @@ body {
   color: white;
 }
 
-/* .button-container button:hover {
-  background-color: white; 
-} */
-
 .logo {
   display: flex;
   align-items: center;
-  justify-content: left;
-  padding-left: 150px;
-  /* justify-content: center; */
+  justify-content: center;
+  padding-right: 100px;
+  transition: transform 0.3s ease, outline-color 0.3s ease;
+  text-shadow: 0 0 10px white;
+}
+
+.logo:hover {
+  transform: translateY(-5px);
+  text-shadow: 0 0 15px white;
 }
 
 .logo h1 {
   padding-top: 50px;
-  width: 450px;
-  font-size: 62px;
+  width: auto;
+  font-size: 99px;
+  text-align: center; /* Center the text */
 }
 
 .pokeball {
-  width: 50px;
-  height: 50px;
-  padding-left: 150px;
+  width: 70px;
+  height: 70px;
+  padding-left: 100px;
   padding-top: 50px;
+  padding-right: 25px;
 }
 
 .textbox p {
@@ -123,75 +141,109 @@ body {
   align-items: center;
 }
 
-#search-pokemon {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  border: 1px solid white;
-  padding: 12px 34px;
-  font-size: 13p;
-  background: transparent;
-  position: relative;
-  cursor: pointer;
-}
-
-#search-pokemon:hover {
-  border: 1px solid rgba(240, 41, 41, 0.8);
-  background-color: rgba(240, 41, 41, 0.8);
-  transition: 1s;
-}
-
 .pokeImage {
-  width: 200px;
+  width: 400px;
   height: auto;
 }
 .pokeDiv {
-  width: 200px;
+  width: 210px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 .pokePage {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: auto;
-  height: auto;
+  width: 100%;
 }
 
 :root {
   --first-color: #2e2e41;
-  --second-color: #5b85ff;
-  --third-color: #434354;
-  --text-color: #fff;
+  --second-color: #ed5564;
+  --third-color: #ffcc00;
+  --text-color: #558ccc;
 
   --box-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
   --text-shadow: 0 5px 25px rgb(2, 2, 2, 0.1);
 }
-/* 
-section {
-    position: relative;
-    margin: 0 80px;
-    transition: 0.5s ease;
-} */
 
 .genbarhome {
-  padding-top: 600px;
+  padding-top: 500px;
   padding-bottom: 250px;
+  display: flex;
+  justify-content: center;
 }
 
-.containter {
-  margin: 0;
-  padding: 0px;
-  box-sizing: border-box;
-  background-color: var(--first-color);
-  position: relative;
+.genHome {
+  background-color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-color: black;
+  border: 10px;
+  padding: 10px;
 }
-.tab-nav-bar {
+
+.genbarbase {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.genHome:hover,
+.genCSS:hover {
+  background-color: #558ccc;
+  color: white;
+}
+
+.genCSS {
+  background-color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: black;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-color: black;
+  border: 10px;
+  padding: 10px;
+}
+
+.gen-textbox {
+  color: black;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 30px;
+}
+
+/* .tab-nav-bar {
   position: relative;
   margin: 10px 10px 40px 10px;
-}
+} */
 
 .tab-navigation {
   position: relative;
@@ -201,11 +253,12 @@ section {
   max-width: fit-content;
   margin: 0 auto;
 }
-.tab-menu {
+
+.tab-menu-home {
   color: var(--text-color);
   list-style: none;
   background: var(--third-color);
-  max-width: 800px;
+  max-width: 1000px;
   padding: 10px;
   white-space: nowrap;
   border-bottom: 1px solid var(--thrid-color);
@@ -215,11 +268,21 @@ section {
   user-select: none;
 }
 
-.tab-menu::-webkit-scrollbar{
-    display: none;
+.tab-menu {
+  color: var(--text-color);
+  list-style: none;
+  background: var(--third-color);
+  max-width: 1000px;
+  padding: 10px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--thrid-color);
+  border-radius: 50px;
+  box-shadow: var(--box-shadow);
+  overflow-x: auto;
+  user-select: none;
 }
 
-.item {
+/* .item {
   color: var(--text-color);
   display: inline-block;
   font-size: 1em;
@@ -228,23 +291,32 @@ section {
   padding: 10px 20px;
   border-radius: 30px;
   background: var(--second-color);
-  cursor: pointer;
+  cursor: default;
   user-select: none;
+} */
+
+.item-list {
+  display: inline-block;
 }
+
+/*
+SIDEBAR
+*/
 
 .sidebar button {
   width: 35px;
+  padding-right: 10px;
 }
 
 .sidebar {
   position: fixed;
-  top: 35%;
+  top: 40%;
   left: -35px;
   width: 50px;
   /* height: 35vh; */
   background-color: #ed5564;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-left-radius: 0;
@@ -270,16 +342,10 @@ section {
   height: 100%; /* Make the ul fill the entire height of the sidebar */
 }
 
-.infobutton {
-  /* to change how the info button looks */
-  display: inline-block;
-  /* border: 1px solid;
-    border-color: #012766;
-    background: #012766;
-    padding: 10px 16px;
-    border-radius: 4px;
-    color: #ffffff; */
-}
+/* 
+POKEMON AND CARD DETAILS 
+*/
+
 [id^="modal"] {
   display: none;
   position: fixed;
@@ -300,12 +366,53 @@ section {
 .popup__wrapper {
   position: relative;
   width: 600px;
-  height: 600px; /* Ensures the popup is square */
+  height: 600px;
   background: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+}
+
+.genSection {
+  background-color: #558ccc;
+}
+
+.infobutton {
+  cursor: pointer;
+  list-style: none;
+  background: #ed5564;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Transition effect for background color and text color */
+}
+
+.addCollection:hover {
+  background-color: #ffcc00;
+  color: white;
+  text-shadow: 0 0 10px black; /* Adjust the shadow size and color as needed */
+}
+
+/* .infobutton:hover {
+  background-color: white;
+  color: #ed5564;
+} */
+
+.infobutton a {
+  background-color: white;
+  color: #ed5564;
+}
+
+.outsideInfoButton {
+  background-color: white;
+  padding-top: 10px;
 }
 
 .popup__wrapper .pokeSprite {
@@ -334,15 +441,10 @@ section {
   margin-bottom: 10px;
 }
 
-.pokemon-details {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-
-
-/* login stuff */
-.all{
+/* 
+LOGIN/REGISTER
+ */
+.all {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -358,7 +460,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(/static/assests/login-bg2.jpg);
+  background: url(/static/assests/login-bg2_upscaled.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -369,23 +471,21 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(/static/assests/register-bg.jpg);
+  background: url(/static/assests/registerWallpaper_upscaled.jpg);
   background-size: cover;
   background-position: center;
 }
 .content {
-  background: rgba(0, 0, 0, 0.1); 
-  height: 310px;
-  width: 410px;
+  background: rgba(0, 0, 0, 0.1);
   border: 2px solid rgba(255, 255, 255, 2);
   backdrop-filter: blur(04px);
   color: #fff;
   border-radius: 12px;
   padding: 30px;
-  margin: auto;
+  margin: auto; /* Center horizontally */
 }
 
-.content h2{
+.content h2 {
   font-size: 38px;
   font-weight: 800;
   text-align: center;
@@ -396,7 +496,8 @@ section {
   width: 100%;
   height: 45px;
   margin: 30px 0;
-  padding: 5 15px ;
+  padding: 5 15px;
+  padding-bottom: 10px;
 }
 
 .input-box input {
@@ -409,18 +510,135 @@ section {
   color: #fff;
 }
 
-.btnn {
+.input-box-home {
+  background: rgba(0, 0, 0, 0.1);
+  height: 310px;
+  width: 410px;
+  border: 2px solid rgba(255, 255, 255, 2);
+  backdrop-filter: blur(04px);
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin: auto;
+  border: solid;
+}
+
+.btn {
   display: inline-block;
   background: #fff;
   color: #0a2862;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 45px;
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding-right: 25px;
+  flex-direction: column;
+}
+
+.login-btn {
+  display: inline-block;
+  background: #fff;
+  color: #ed5564;
   width: 100%;
   border-radius: 30px;
   font-size: 16px;
   height: 45px;
   font-weight: 600;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin-bottom: 30px;
+  /* margin-bottom: 40px; */
   padding: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
 
+.login-btn:hover {
+  background-color: #ed5564;
+  color: white;
+}
+
+.loginP {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.login-reg-btn {
+  display: inline-block;
+  background: #fff;
+  color: #ed5564;
+  width: 100%;
+  border-radius: 30px;
+  font-size: 16px;
+  height: 45px;
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  /* margin-bottom: 40px; */
+  padding: 10px;
+  padding-top: 10px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.login-reg-btn:hover {
+  background-color: #ed5564;
+  color: white;
+}
+
+.already-p {
+  margin-bottom: 25px;
+}
+
+.register-btn {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  /* padding: 10px 20px; */
+  background-color: white;
+  color: #ed5564;
+  text-align: center;
+  text-decoration: none;
+  /* border: 2px solid #007bff; */
+  border-radius: 5px;
+  /* margin-top: 20px; */
+}
+
+/*
+COLLECTIONS PAGE
+*/
+
+.missingH1 {
+  color: black;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 500px;
+  height: 30px;
+  text-align: center;
+}
+
+.removePokemon {
+  cursor: pointer;
+  list-style: none;
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #ed5564;
+  text-decoration: none;
 }

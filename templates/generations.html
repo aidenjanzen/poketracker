@@ -1,54 +1,59 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-<div class="header-gen">
-  <div class="gen-textbox">
-    <h1>Generation {{ number }}</h1>
+{% extends "base.html" %} {% block content %}
+<section class="genSection">
+  <div class="header-gen">
+    <div class="gen-textbox">
+      <h1>Generation {{ number }}</h1>
+    </div>
   </div>
-</div>
 
-<div class="pokePage">
-  {% for i in range((startNumber[number - 1]), (startNumber[number - 1] + amounts[number - 1])) %}
-  <div class="pokeDiv">
-    <div class="{{i}}"></div>
-    <h2>{{pokedex[i].name }}</h2>
-    <img class="pokeImage"
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png">
-    <h3>Type:
-      {% for type in pokedex[i].type %}
-      {{ type }}
-      {% endfor %}
-    </h3>
-    <form method="POST" action="{{ url_for('html.add_pokemon') }}">
-      <input type="hidden" name="pokemon_number" value="{{ i }}">
-      <input type="hidden" name="gen_number" value="{{ number }}">
-      <button type="submit" class="btn btn-primary">Add to Collection</button>
-    </form>
-
-    <a class="infobutton" href="#modal{{i}}">Information</a>
-
-    <div class="popup" id="modal{{i}}">
-      <a class="popup__overlay" href="#"></a>
-      <div class="popup__wrapper">
+  <div class="pokePage">
+    {% for i in range((startNumber[number - 1]), (startNumber[number - 1] +
+    amounts[number - 1])) %}
+    <div class="pokeDiv">
+      <div class="{{i}}"></div>
+      <h2>{{pokedex[i].name }}</h2>
+      <img
+        class="pokeImage"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
+      />
+      <h3>Type: {% for type in pokedex[i].type %} {{ type }} {% endfor %}</h3>
+      <form method="POST" action="{{ url_for('html.add_pokemon') }}">
+        <input type="hidden" name="pokemon_number" value="{{ i }}" />
+        <input type="hidden" name="gen_number" value="{{ number }}" />
+        <button type="submit" class="infobutton addCollection">
+          Add to Collection
+        </button>
+      </form>
+      <button class="infobutton outsideInfoButton">
+        <a class="infobutton" href="#modal{{i}}">Information</a>
+      </button>
+      <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
           <a class="popup__close" href="#">Close icon here</a>
-          <img class="pokeSprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png" alt="Pokemon Sprite">
+          <img
+            class="pokeSprite"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
+            alt="Pokemon Sprite"
+          />
           <p>Name: {{ pokedex[i].name }}</p>
           <p>Weight: {{ pokedex[i].weight }}</p>
           <p>Height: {{ pokedex[i].height }}</p>
           <p>Power: {{ pokedex[i].power }}</p>
           <p>Moves:</p>
           <ul>
-              {% for move in pokedex[i].moves %}
-              <li>{{ move }}
-                  <button class="like-button">Like</button>
-              </li>
-              {% endfor %}
+            {% for move in pokedex[i].moves %}
+            <li>
+              {{ move }}
+              <button class="like-button">Like</button>
+            </li>
+            {% endfor %}
           </ul>
+        </div>
       </div>
+    </div>
+    {% endfor %}
   </div>
-  </div>
-  {% endfor %}
-</div>
 
-{% endblock %}
+  {% endblock %}
+</section>
