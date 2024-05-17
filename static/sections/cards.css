@@ -6,8 +6,8 @@
   background-image: url("pokemon-gen1.jpg");
   background-size: cover;
   z-index: 1;
-  padding-bottom: 50px;
-  height: 100px;
+  padding-bottom: 20px;
+  height: auto;
 }
 
 .textbox {
