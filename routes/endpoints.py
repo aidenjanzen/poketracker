@@ -90,8 +90,8 @@ def remove_pokemon():
         PokeCollection.collection_id == collection.id, 
         PokeCollection.pokemon_number==number
         )).scalar()
-
-    db.session.delete(exist)
-    db.session.commit()
- 
+    
+    if exist:
+        db.session.delete(exist)
+        db.session.commit()
     return redirect(url_for('api_collections.get_collection'))

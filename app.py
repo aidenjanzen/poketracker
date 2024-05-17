@@ -18,7 +18,10 @@ login_manager.init_app(app) #initializes the login manager
 
 @login_manager.user_loader #retrieves a given user from userid
 def loader_user(user_id):
-    return Users.query.get(user_id)
+    check = db.select(Users).where(Users.id == user_id)
+    result = db.session.execute(check).scalar()
+    # return Users.query.get(user_id)
+    return (result)
 
 from routes import web_pages_bp, api_collections_bp, api_login_bp, api_register_bp
 
