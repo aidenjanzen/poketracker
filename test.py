@@ -23,6 +23,7 @@ def test_pokemon():
 
 def test_collection(): #not sure how but should create a user, foreign key that user to the collection and call collection for its id
     collection = Collection
+    
 @pytest.fixture
 def client():
     app.config['TESTING'] = True
@@ -57,6 +58,18 @@ def test_gen(client):
     assert response.status_code == 200
     assert b'Generation 1' in response.data
     assert b'1' in response.data  # Check if it includes start number
+
+    number = 5
+    response = client.get(f'/gen{number}')
+    assert response.status_code == 200
+    assert b'Generation 5' in response.data
+    assert b'5' in response.data  # Check if it includes start number
+
+    number = 9
+    response = client.get(f'/gen{number}')
+    assert response.status_code == 200
+    assert b'Generation 9' in response.data
+    assert b'9' in response.data  # Check if it includes start number
 
 # ----------------------------------------------------------- tests for login -------------------------------------------------------
 
@@ -123,13 +136,23 @@ def test_register_missing_password(client):
 #         print(response.data)
 #         assert b"User already exists, please login." in response.data
 
-# ----------------------------------------------------------- tests for add and remove and collections -------------------------------------------------------
+# ----------------------------------------------------------- tests for add and remove and collections and logout-------------------------------------------------------
 def test_add_pokemon(client):
-    with client:
-        pass
+    with client: 
+        response = client.post('/add', follow_redirects=True) #check if not logged in
+        assert response.status_code == 200
+        assert b'You are not logged in.' in response.data
 def test_remove_pokemon(client):
-    with client:
-        pass
+    with client: 
+        response = client.post('/remove', follow_redirects=True) #check if not logged in
+        assert response.status_code == 200
+        assert b'You are not logged in.' in response.data
 def test_collection(client):
-    with client:
-        pass
+    with client: 
+        response = client.get('/collections', follow_redirects=True) #check if not logged in
+        assert response.status_code == 200
+        assert b'You are not logged in.' in response.data
+def test_logout(client):
+    with client: 
+        response = client.get('/logout', follow_redirects=True) #check if not logged in
+        assert response.status_code == 200

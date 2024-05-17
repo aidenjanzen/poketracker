@@ -4,3 +4,4 @@ routes/__pycache__
 *.pyc
 __pycache__
 data/db.py
+.coverage
