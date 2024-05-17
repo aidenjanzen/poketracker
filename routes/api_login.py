@@ -7,11 +7,10 @@ api_login_bp = Blueprint("api_login", __name__)
 
 @api_login_bp.route('/login', methods=["GET", "POST"])
 def login():
-    if current_user.is_authenticated:
-        flash("Already logged in.")
-        return redirect(url_for("html.home"))
-
     if request.method == "POST":
+        if current_user.is_authenticated:
+            flash("Already logged in.")
+            return redirect(url_for("html.home"))
         username = request.form.get("username")
         if username == "":
             flash("Please enter a username.")

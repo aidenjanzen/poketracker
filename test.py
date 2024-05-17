@@ -23,15 +23,25 @@ def test_pokemon():
 
 def test_collection(): #not sure how but should create a user, foreign key that user to the collection and call collection for its id
     collection = Collection
-
-def test_database():
-    pass
-
-# ----------------------------------------------------------- tests for login -------------------------------------------------------
-
 @pytest.fixture
 def client():
-    return app.test_client()
+    app.config['TESTING'] = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+
+    with app.app_context():
+        db.create_all()  # Create tables for testing
+        yield app.test_client()
+        db.drop_all()  # Clean up / drop tables after test
+
+def test_database(client):
+    with app.app_context():  # Ensure app context is available
+        db.drop_all()
+        db.create_all()
+        user = Users(username="mpt", password="123")
+        db.session.add(user)
+        db.session.commit()
+
+# ----------------------------------------------------------- tests for routes -------------------------------------------------------
 
 def test_base(client):
     response = client.get('/')
@@ -47,6 +57,8 @@ def test_gen(client):
     assert response.status_code == 200
     assert b'Generation 1' in response.data
     assert b'1' in response.data  # Check if it includes start number
+
+# ----------------------------------------------------------- tests for login -------------------------------------------------------
 
 def test_login_successful(client):
     with client:
@@ -66,14 +78,14 @@ def test_login_nonexistent_user(client):
         assert response.status_code == 200  # Check if redirected after nonexistent user
         assert b'No user found.' in response.data  # Check if flash message present
 
-# def test_login_incorrect_password(client):
+# def test_login_incorrect_password(client): #haven't got this working yet
 #     with client:
 #         response = client.post('/login', data={'username': 'mpt', 'password': 'incorrect'}, follow_redirects=True)
 #         print(response.data)
 #         assert response.status_code == 200  # Check if redirected after incorrect password
 #         assert b'Incorrect password.' in response.data  # Check if flash message present
 
-# def test_already_logged_in(client):
+# def test_already_logged_in(client): #haven't got this working yet
 #     with client:
 #         response = client.post('/login', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
 #         print(response.data)
@@ -84,6 +96,40 @@ def test_login_nonexistent_user(client):
 #         assert response.status_code == 200  # Check if redirected
 #         assert b'Already logged in.' in response.data  # Check if flash message present
 
-
-
 # ----------------------------------------------------------- tests for register -------------------------------------------------------
+
+def test_register_successful(client):
+    with client:
+        response = client.post('/register', data={'username': 'testuser', 'password': 'test'}, follow_redirects=True)
+        assert response.status_code == 200
+        assert b"User already exists, please login." not in response.data
+
+def test_register_missing_username(client):
+    with client:
+        response = client.post('/register', data={'username': '', 'password': '123'}, follow_redirects=True)
+        assert response.status_code == 200
+        assert b'Please enter a username.' in response.data
+
+def test_register_missing_password(client):
+    with client:
+        response = client.post('/register', data={'username': 'testuser', 'password': ''}, follow_redirects=True)
+        assert response.status_code == 200
+        assert b'Please enter a password.' in response.data
+
+# def test_register_user_exists(client): #haven't got this working yet
+#     with client:
+#         response = client.post('/register', data={'username': 'mpt', 'password': '123'}, follow_redirects=True)
+#         assert response.status_code == 200
+#         print(response.data)
+#         assert b"User already exists, please login." in response.data
+
+# ----------------------------------------------------------- tests for add and remove and collections -------------------------------------------------------
+def test_add_pokemon(client):
+    with client:
+        pass
+def test_remove_pokemon(client):
+    with client:
+        pass
+def test_collection(client):
+    with client:
+        pass
