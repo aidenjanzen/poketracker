@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>You are not logged in!</h1>
+<p>To keep track of your missing pokemon:</p>
+<h1>Login:</h1>
+<form action="#" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username"/>
+    <label for="password">Password:</label>
+    <input type="password" name="password"/>
+    <button type="submit">Submit</button>
+</form>
+<p>or</p>
+<h1>Register:</h1>
+<form action="#" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username"/>
+    <label for="password">Password:</label>
+    <input type="password" name="password"/>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

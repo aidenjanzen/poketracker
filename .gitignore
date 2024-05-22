@@ -3,3 +3,5 @@ routes/__pycache__
 *$py.class
 *.pyc
 __pycache__
+data/db.py
+.coverage

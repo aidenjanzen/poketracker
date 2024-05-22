@@ -1,0 +1,39 @@
+.header-gen {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background-image: url("pokemon-gen1.jpg");
+  background-size: cover;
+  z-index: 1;
+  padding-bottom: 20px;
+  height: auto;
+}
+
+.textbox {
+  width: 90%;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 25px;
+}
+/* background-color: #00000070; */
+
+.textboxes h1 {
+  font-size: 62px;
+}
+
+.pokeDiv {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}

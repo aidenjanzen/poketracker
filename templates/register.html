@@ -1,13 +1,33 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %} {% with messages =
+get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<script>
+  let message = "{{ message }}";
+  alert(message);
+</script>
+{% endfor %} {% endif %} {% endwith %}
 
-{% block content %}
+<div class="all">
+  <div class="body-login1">
+    <div class="content">
+      <form action="#" method="POST">
+        <h2>Register:</h2>
+        <div class="input-box">
+          <label for="username">Username:</label>
+          <input type="text" name="username" />
+        </div>
 
-<h1>Register:</h1>
-<form action="#" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username"/>
-    <label for="password">Password:</label>
-    <input type="password" name="password"/>
-    <button type="submit">Submit</button>
-</form>
+        <div class="input-box">
+          <label for="password">Password:</label>
+          <input type="password" name="password" />
+          <button type="submit" class="login-btn">Submit</button>
+        </div>
+      </form>
+      <p class="loginP">Already have an account?</p>
+      <a href="{{ url_for('html.login') }}" class="reg-login">
+        <button type="button" class="login-reg-btn">Login</button>
+      </a>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
