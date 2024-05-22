@@ -98,24 +98,16 @@
 
   <script>
     function showPokemon(type) {
-      const elements = document.querySelectorAll('.pokeDiv');
-      elements.forEach(function(element) {
+      document.querySelectorAll('.pokeDiv').forEach(function(element) {
         element.classList.add('hidden');
       });
-      const types = document.querySelectorAll('.' + type);
-      types.forEach(function(element) {
-        const parent = element.parentElement;
-        if (parent.classList.contains('hidden')) {
-          parent.classList.remove('hidden');
-        } else {
-        parent.classList.add('hidden');
-        }
+      document.querySelectorAll('.' + type).forEach(function(element) {
+        element.parentElement.classList.remove('hidden');
       });
     }
 
     function showAll() {
-      const elements = document.querySelectorAll('.pokeDiv');
-      elements.forEach(function(element) {
+      document.querySelectorAll('.pokeDiv').forEach(function(element) {
         element.classList.remove('hidden');
       });
     }
