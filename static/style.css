@@ -141,50 +141,37 @@ body {
   align-items: center;
 }
 
-
-#search-pokemon{
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    border: 1px solid white;
-    padding: 12px 34px;
-    font-size: 13p;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-}
-
-#search-pokemon:hover {
-    border: 1px solid rgba(240, 41, 41, 0.8);
-    background-color: rgba(240, 41, 41, 0.8);
-    transition: 1s;
-}
-
-
-
-.pokeImage {
-    width: 200px;
-    height: auto;
-}
 .pokeDiv {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
-
-.hidden {
-    display: none;
+.pokeDiv h3 {
+  padding-bottom: 10px;
+  margin: 0px;
+  width: auto;
+  font-size: medium;
 }
-
+.pokeDiv h2 {
+  margin: 0px;
+  width: auto;
+  font-size: large;
+}
+.pokeImage {
+  width: 200px;
+  height: 200px;
+}
 .pokePage {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
 }
-
 
 :root {
   --first-color: #2e2e41;
@@ -649,4 +636,8 @@ COLLECTIONS PAGE
   width: 600px;
   height: 30px;
   /* text-align: center; */
+}
+
+.hidden {
+  display: none;
 }
