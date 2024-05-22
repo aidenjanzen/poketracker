@@ -97,20 +97,19 @@
 
 
   <script>
-    var typedic = {
-    }
+    //var typedic = {
+    //}
     function showPokemon(type) {
       document.querySelectorAll('.pokeDiv').forEach(function(element) {
         element.classList.add('hidden');
       });
-      for (var typeKey in typedic) {
-        typedic[typeKey] = false;
-      }
+      //for (var typeKey in typedic) {
+      //  typedic[typeKey] = false;
+      //}
       document.querySelectorAll('.' + type).forEach(function(element) {
         element.parentElement.classList.remove('hidden');
-        typedic[type] = true;
+        //typedic[type] = true;
       });
-      console.log(typedic);
     }
 
     function showAll() {
