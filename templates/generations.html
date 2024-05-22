@@ -11,7 +11,7 @@
       <button type="button" class="filter btn" onclick="showAll()">Show All</button>
       <button type="button" class="filter btn" onclick="hideAll()">Hide All</button>
       <button type="button" class="filter btn" onclick="showPokemon('Grass')">Grass</button>
-      <button type="button" class="filter btn" onclick="showPokemon('Fire')">Fire</button>
+      <button type="button" class="filter btn" onclick="hideTypeElements('Fire')">Fire</button>
       <button type="button" class="filter btn" onclick="showPokemon('Water')">Water</button>
       <button type="button" class="filter btn" onclick="showPokemon('Bug')">Bug</button>
       <button type="button" class="filter btn" onclick="showPokemon('Poison')">Poison</button>
@@ -103,7 +103,13 @@
       });
     }
 
-    
+    function hideTypeElements(type) {
+      const elements = document.querySelectorAll('.' + type);
+  
+      elements.forEach(function(element) {
+        element.classList.add('hidden');
+      });
+    }
   </script>
   
 
