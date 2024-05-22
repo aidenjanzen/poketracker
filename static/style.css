@@ -641,3 +641,12 @@ COLLECTIONS PAGE
 .hidden {
   display: none;
 }
+
+.filbtn{
+  width: 10%;
+}
+
+.filbtn li{
+  display: inline;
+  float: left;
+}

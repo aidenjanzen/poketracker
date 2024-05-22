@@ -9,7 +9,6 @@
   <div id="filterbtns" class="filbtn">
     <ul>
       <button type="button" class="filter btn" onclick="showAll()">Show All</button>
-      <button type="button" class="filter btn" onclick="hideAll()">Hide All</button>
       <button type="button" class="filter btn" onclick="showPokemon('Grass')">Grass</button>
       <button type="button" class="filter btn" onclick="showPokemon('Fire')">Fire</button>
       <button type="button" class="filter btn" onclick="showPokemon('Water')">Water</button>
@@ -95,29 +94,29 @@
     {% endfor %}
   </div>
 
+
+
   <script>
-    function showAll() {
-      const elements = document.querySelectorAll('.pokeDiv');
-      elements.forEach(function(element) {
-        element.classList.remove('hidden');
-      });
-    }
-    function hideAll() {
+    function showPokemon(type) {
       const elements = document.querySelectorAll('.pokeDiv');
       elements.forEach(function(element) {
         element.classList.add('hidden');
       });
-    }
-    
-    function showPokemon(type) {
-      const elements = document.querySelectorAll('.' + type);
-      elements.forEach(function(element) {
+      const types = document.querySelectorAll('.' + type);
+      types.forEach(function(element) {
         const parent = element.parentElement;
         if (parent.classList.contains('hidden')) {
           parent.classList.remove('hidden');
         } else {
         parent.classList.add('hidden');
         }
+      });
+    }
+
+    function showAll() {
+      const elements = document.querySelectorAll('.pokeDiv');
+      elements.forEach(function(element) {
+        element.classList.remove('hidden');
       });
     }
   </script>
