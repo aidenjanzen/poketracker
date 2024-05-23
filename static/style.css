@@ -646,3 +646,36 @@ COLLECTIONS PAGE
 .filbtn{
   width: 10%;
 }
+
+#searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#SearchInput {
+  width: 20%;
+}
+
+.sidebar {
+  position: fixed;
+  top: 40%;
+  right: -35px;
+  width: 50px;
+  /* height: 35vh; */
+  background-color: #ed5564;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  overflow: hidden;
+  transition: left 0.5s ease;
+  z-index: 999;
+  display: flex; /* Change to flex to evenly space items */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Space items evenly vertically */
+  height: 200px;
+}

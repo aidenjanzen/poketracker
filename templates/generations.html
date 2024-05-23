@@ -1,13 +1,14 @@
 {% extends "base.html" %} {% block content %}
 <section class="genSection">
+  
+  <div id="searchbar">
+    <input type="text" id="SearchInput" onkeyup="searchfunc()" placeholder="Search">
+  </div>
+
   <div class="header-gen">
     <div class="gen-textbox">
       <h1>Generation {{ number }}</h1>
     </div>
-  </div>
-
-  <div id="searchbar">
-    <input type="text" id="SearchInput" onkeyup="searchfunc()" placeholder="Search">
   </div>
 
   <div id="filterbtns" class="filbtn">
