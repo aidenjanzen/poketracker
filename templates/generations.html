@@ -6,6 +6,10 @@
     </div>
   </div>
 
+  <div id="searchbar">
+    <input type="text" id="SearchInput" onkeyup="searchfunc()" placeholder="Search">
+  </div>
+
   <div id="filterbtns" class="filbtn">
     <ul>
       <button type="button" class="filter btn" onclick="showAll()">Show All</button>
@@ -97,6 +101,32 @@
 
 
   <script>
+    function searchfunc(){
+      const pokePage = document.querySelector('.pokePage')
+
+      if (!pokePage) {
+        console.log('No pokePage container found.');
+        return;
+      }
+
+      const input = document.getElementById('SearchInput');
+      const filter = input.value.toUpperCase();
+      const pokeDivs = pokePage.querySelectorAll('.pokeDiv');
+
+      pokeDivs.forEach((pokeDiv, index) => {
+        const h2 = pokeDiv.querySelector('h2');
+        if (h2) {
+          const txtValue = h2.textContent || h2.innerText;
+
+          if (txtValue.toUpperCase().includes(filter)) {
+            pokeDiv.classList.remove('hidden');
+          } else{
+            pokeDiv.classList.add('hidden');
+          }
+        }
+
+      });
+    }
     //var typedic = {
     //}
     function showPokemon(type) {
