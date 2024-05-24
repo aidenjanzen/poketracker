@@ -211,7 +211,7 @@ body {
 
 .genbarbase {
   padding-top: 50px;
-  padding-bottom: 50px;
+  /* padding-bottom: 10px; */
 }
 
 .genHome:hover,
@@ -629,7 +629,7 @@ COLLECTIONS PAGE
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 #SearchInput {
@@ -813,8 +813,8 @@ main {
 }
 
 .detail-img-wrapper {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   margin: auto;
   position: relative;
   z-index: 3;
@@ -1011,7 +1011,6 @@ audio::-webkit-media-controls-time-remaining-display {
 audio::-webkit-media-controls-enclosure {
   width: auto;
 }
-
 .audio-cries {
   display: flex;
   align-items: center;
