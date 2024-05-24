@@ -1011,3 +1011,10 @@ audio::-webkit-media-controls-time-remaining-display {
 audio::-webkit-media-controls-enclosure {
   width: auto;
 }
+
+.audio-cries {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
