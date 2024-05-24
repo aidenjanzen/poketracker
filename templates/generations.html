@@ -1,14 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <section class="genSection">
+  
   <div id="searchbar">
-    <input
-      type="text"
-      id="SearchInput"
-      onfocus="removePlaceholder()"
-      onblur="restorePlaceholder()"
-      onkeyup="searchfunc()"
-      placeholder="Search"
-    />
+    <input type="text" id="SearchInput" onkeyup="searchfunc()" placeholder="Search">
   </div>
 
   <div class="header-gen">
@@ -16,138 +10,31 @@
       <h1>Generation {{ number }}</h1>
     </div>
   </div>
+  
   <div id="filterbtns" class="filbtn">
-    <ul class="filter-btn-space">
-      <li>
-        <button type="button" class="filter-btn" onclick="showAll()">
-          All
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Grass')">
-          Grass
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Fire')">
-          Fire
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Water')">
-          Water
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Bug')">
-          Bug
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Poison')"
-        >
-          Poison
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Flying')"
-        >
-          Flying
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Normal')"
-        >
-          Normal
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Electric')"
-        >
-          Electric
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Ground')"
-        >
-          Ground
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Fairy')">
-          Fairy
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Psychic')"
-        >
-          Psychic
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Ghost')">
-          Ghost
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Ice')">
-          Ice
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Dragon')"
-        >
-          Dragon
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Dark')">
-          Dark
-        </button>
-      </li>
-      <li>
-        <button
-          type="button"
-          class="filter-btn"
-          onclick="showPokemon('Fighting')"
-        >
-          Fighting
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Rock')">
-          Rock
-        </button>
-      </li>
-      <li>
-        <button type="button" class="filter-btn" onclick="showPokemon('Steel')">
-          Steel
-        </button>
-      </li>
+    <ul>
+      <li><button type="button" class="filter btn" onclick="showAll()">Show All</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Grass')">Grass</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Fire')">Fire</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Water')">Water</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Bug')">Bug</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Poison')">Poison</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Flying')">Flying</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Normal')">Normal</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Electric')">Electric</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Ground')">Ground</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Fairy')">Fairy</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Psychic')">Psychic</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Ghost')">Ghost</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Ice')">Ice</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Dragon')">Dragon</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Dark')">Dark</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Fighting')">Fighting</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Rock')">Rock</button></li>
+      <li><button type="button" class="filter btn" onclick="showPokemon('Steel')">Steel</button></li>
     </ul>
   </div>
-
+  
   <div class="pokePage">
     {% for i in range((startNumber[number - 1]), (startNumber[number - 1] +
     amounts[number - 1])) %}
@@ -159,14 +46,16 @@
         class="pokeImage"
         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
       />
-
-      <h3>
-        Type: {% set types = pokedex[i].type %} {% for type in types %} {{ type
-        }} {% endfor %}
+      
+      <h3>Type: 
+        {% set types = pokedex[i].type %}
+        {% for type in types %}
+          {{ type }}
+        {% endfor %}
       </h3>
 
       {% for type in types %}
-      <div class="{{ type }}" style="display: none"></div>
+        <div class="{{ type }}" style="display: none;"></div>
       {% endfor %}
 
       <div class="padding">
@@ -179,73 +68,85 @@
         </form>
       </div>
       <button class="infobutton outsideInfoButton">
-        <a class="infobutton" href="{{ url_for('html.info', number=i) }}">Information</a>
+        <a class="infobutton" href="#modal{{i}}">Information</a>
       </button>
+      <div class="popup" id="modal{{i}}">
+        <a class="popup__overlay" href="#"></a>
+        <div class="popup__wrapper">
+          <a class="popup__close" href="#">Close icon here</a>
+          <img
+            class="pokeSprite"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
+            alt="Pokemon Sprite"
+          />
+          <p>Name: {{ pokedex[i].name }}</p>
+          <p>Weight: {{ pokedex[i].weight }}</p>
+          <p>Height: {{ pokedex[i].height }}</p>
+          <p>Power: {{ pokedex[i].power }}</p>
+          <p>Moves:</p>
+          <ul>
+            {% for move in pokedex[i].moves %}
+            <li>
+              {{ move }}
+              <button class="like-button">Like</button>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
     {% endfor %}
   </div>
-
+  
   <script>
-    function searchfunc() {
-      const pokePage = document.querySelector(".pokePage");
+    function searchfunc(){
+      const pokePage = document.querySelector('.pokePage')
 
       if (!pokePage) {
-        console.log("No pokePage container found.");
+        console.log('No pokePage container found.');
         return;
       }
 
-      const input = document.getElementById("SearchInput");
+      const input = document.getElementById('SearchInput');
       const filter = input.value.toUpperCase();
-      const pokeDivs = pokePage.querySelectorAll(".pokeDiv");
+      const pokeDivs = pokePage.querySelectorAll('.pokeDiv');
 
       pokeDivs.forEach((pokeDiv, index) => {
-        const h2 = pokeDiv.querySelector("h2");
+        const h2 = pokeDiv.querySelector('h2');
         if (h2) {
           const txtValue = h2.textContent || h2.innerText;
 
           if (txtValue.toUpperCase().includes(filter)) {
-            pokeDiv.classList.remove("hidden");
-          } else {
-            pokeDiv.classList.add("hidden");
+            pokeDiv.classList.remove('hidden');
+          } else{
+            pokeDiv.classList.add('hidden');
           }
         }
+
       });
     }
     //var typedic = {
     //}
     function showPokemon(type) {
-      document.querySelectorAll(".pokeDiv").forEach(function (element) {
-        element.classList.add("hidden");
+      document.querySelectorAll('.pokeDiv').forEach(function(element) {
+        element.classList.add('hidden');
       });
       //for (var typeKey in typedic) {
       //  typedic[typeKey] = false;
       //}
-      document.querySelectorAll("." + type).forEach(function (element) {
-        element.parentElement.classList.remove("hidden");
+      document.querySelectorAll('.' + type).forEach(function(element) {
+        element.parentElement.classList.remove('hidden');
         //typedic[type] = true;
       });
     }
 
     function showAll() {
-      document.querySelectorAll(".pokeDiv").forEach(function (element) {
-        element.classList.remove("hidden");
+      document.querySelectorAll('.pokeDiv').forEach(function(element) {
+        element.classList.remove('hidden');
       });
     }
-
-    function removePlaceholder() {
-      const input = document.getElementById("SearchInput");
-      if (input.placeholder === "Search") {
-        input.placeholder = "";
-      }
-    }
-
-    function restorePlaceholder() {
-      const input = document.getElementById("SearchInput");
-      if (input.value === "") {
-        input.placeholder = "Search";
-      }
-    }
   </script>
+  
 
   {% endblock %}
 </section>
