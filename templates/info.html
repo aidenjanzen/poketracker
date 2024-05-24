@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% block content %}
+<main class="detail-main main">
+        <div class="header-wrapper">
+            <div class="header-wrap">
+                <a href="./index.html" class="back-btn-wrap">
+                    <img src="/static/assests/back-to-home.svg" alt="back to home" class="back-btn" id="back-btn" />
+                </a>
+                <div class="name-wrap">
+                    <h1 class="name">{{pokedex[number].name}}</h1>
+                </div>
+            </div>
+            <div class="pokemon-id-wrap">
+                <p class="body2-fonts"></p>
+            </div>
+        </div>
+    <div class="featured-img">
+        <a href="#" class="arrow left-arrow" id="leftArrow">
+            <img src="/static/assests/chevron_left.svg" alt="back" />
+        </a>
+        <div class="detail-img-wrapper">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{number}}.png" alt="" />
+        </div>
+        <a href="#" class="arrow right-arrow" id="rightArrow">
+            <img src="/static/assests/chevron_right.svg" alt="forward" />
+        </a>
+    </div>
+    <div class="detail-card-detail-wrapper">
+        <div class="power-wrapper">
+            <p class="body3-fonts type grass"></p>
+            <p class="body3-fonts type poison"></p>
+        </div>
+        <p class="body2-fonts about-text">About</p>
+        <div class="pokemon-detail-wrapper">
+            <div class="pokemon-detail-wrap">
+                <div class="pokemon-detail">
+                    <img src="/static/assests/weight.svg" alt="weight" />
+                    <p class="body3-fonts weight">{{weight}}</p>
+                </div>
+                <p class="caption-fonts">Weight</p>
+            </div>
+            <div class="pokemon-detail-wrap">
+                <div class="pokemon-detail">
+                    <img src="/static/assests/height.svg" alt="height" class="straighten" />
+                    <p class="body3-fonts height">{{height}}</p>
+                </div>
+                <p class="caption-fonts">Height</p>
+            </div>
+            <div class="pokemon-detail-wrap">
+                <div class="pokemon-detail">
+                    <img src="/static/assests/hashtag.svg" alt="height" class="straighten" />
+                    <p class="body3-fonts height">{{number}}</p>
+                </div>
+                <p class="caption-fonts">Number</p>
+            </div>
+        </div>
+        <p class="body3-fonts pokemon-description"></p>
+        <p class="body2-fonts about-text">Base Stats</p>
+        <div class="stats-wrapper">
+            <div class="stats-wrap" data-stat="hp">
+                <p class="body3-fonts stats">HP</p>
+                <p class="body3-fonts">{{hp}}</p>
+                <progress value="{{hp}}" max="255" class="progress-bar"></progress>
+            </div>
+            <div class="stats-wrap" data-stat="ATK">
+                <p class="body3-fonts stats">ATK</p>
+                <p class="body3-fonts">{{attack}}</p>
+                <progress value="{{attack}}" max="255" class="progress-bar"></progress>
+            </div>
+            <div class="stats-wrap" data-stat="DEF">
+                <p class="body3-fonts stats">DEF</p>
+                <p class="body3-fonts">{{defense}}</p>
+                <progress value="{{defense}}" max="255" class="progress-bar"></progress>
+            </div>
+            <div class="stats-wrap" data-stat="SATK">
+                <p class="body3-fonts stats">SATK</p>
+                <p class="body3-fonts">{{special_attack}}</p>
+                <progress value="{{special_attack}}" max="255" class="progress-bar"></progress>
+            </div>
+            <div class="stats-wrap" data-stat="SDEF">
+                <p class="body3-fonts stats">SDEF</p>
+                <p class="body3-fonts">{{special_defense}}</p>
+                <progress value="{{special_defense}}" max="255" class="progress-bar"></progress>
+            </div>
+            <div class="stats-wrap" data-stat="SPD">
+                <p class="body3-fonts stats">SPD</p>
+                <p class="body3-fonts">{{speed}}</p>
+                <progress value="{{speed}}" max="255" class="progress-bar"></progress>
+            </div>
+        </div>
+        <div class="location-info">
+            <h2>Locations</h2>
+            {% if locations == [] %}
+                <p>No locations found</p>
+            {% else %}
+                <ul>
+                    {% for location in locations %}
+                    <li>{{ location.location }} - {{ location.version }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="moves">
+            <h2>Moves</h2>
+            {% if moves == [] %}
+                <p>No moves found</p>
+            {% else %}
+                <ul>
+                    {% for move in moves %}
+                    <li>{{ move.name }} - {{ move.version }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <img src="/static/assests/pokedex.svg" alt="pokedex" class="detail-bg" />
+</main>
+{% endblock %}

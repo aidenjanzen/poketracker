@@ -69,32 +69,8 @@
         </form>
       </div>
       <button class="infobutton outsideInfoButton">
-        <a class="infobutton" href="#modal{{i}}">Information</a>
+        <a class="infobutton" href="{{ url_for('html.info', number=i) }}">Information</a>
       </button>
-      <div class="popup" id="modal{{i}}">
-        <a class="popup__overlay" href="#"></a>
-        <div class="popup__wrapper">
-          <a class="popup__close" href="#">Close icon here</a>
-          <img
-            class="pokeSprite"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i}}.png"
-            alt="Pokemon Sprite"
-          />
-          <p>Name: {{ pokedex[i].name }}</p>
-          <p>Weight: {{ pokedex[i].weight }}</p>
-          <p>Height: {{ pokedex[i].height }}</p>
-          <p>Power: {{ pokedex[i].power }}</p>
-          <p>Moves:</p>
-          <ul>
-            {% for move in pokedex[i].moves %}
-            <li>
-              {{ move }}
-              <button class="like-button">Like</button>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
     </div>
     {% endfor %}
   </div>
