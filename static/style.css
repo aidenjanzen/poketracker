@@ -959,3 +959,23 @@ main {
 .detail-bg path {
   fill: var(--grayscale-white);
 }
+
+/* --------------------------audio--------------- */
+audio::-webkit-media-controls-timeline{
+  display: none;
+}
+/* audio::-webkit-media-controls-play-button{
+  background-color:green;
+} */
+audio::-webkit-media-controls-timeline-container{
+  display: none;
+}
+audio::-webkit-media-controls-current-time-display{
+  display: none;
+}
+audio::-webkit-media-controls-time-remaining-display{
+  display: none;
+}
+audio::-webkit-media-controls-enclosure{
+  width: auto;
+}
