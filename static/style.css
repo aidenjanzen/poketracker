@@ -713,8 +713,7 @@ COLLECTIONS PAGE
   display: none;
 }
 
- 
-.filbtn ul::-webkit-scrollbar{
+.filbtn ul::-webkit-scrollbar {
   display: none;
 }
 
@@ -789,24 +788,28 @@ main {
   color: var(--grayscale-white);
 }
 
-.featured-img {
+/* .featured-img {
   position: relative;
-}
-
+} */
+/* 
 .featured-img a.arrow {
   display: inline-block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 999;
-}
+} */
 
 .featured-img a.arrow.left-arrow {
-  left: -2rem;
+  left: -50px;
 }
 
 .featured-img a.arrow.right-arrow {
   right: -2rem;
+}
+
+.left-arrow-img {
+  left: 100px;
 }
 
 .detail-img-wrapper {
@@ -902,7 +905,8 @@ main {
 }
 
 .pokemon-detail-wrap .straighten {
-  transform: rotate(90deg);
+  height: 15px;
+  width: 15px;
 }
 
 .detail-card-detail-wrapper .about-text {
@@ -958,4 +962,33 @@ main {
 
 .detail-bg path {
   fill: var(--grayscale-white);
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Full width to ensure proper centering */
+  height: 100%; /* Full height if you want vertical centering too */
+}
+
+.centered-header .name-wrap {
+  flex: 1;
+  text-align: center;
+}
+
+.name-wrap {
+  display: flex;
+  justify-content: center; /* Center horizontally within .name-wrap */
+  align-items: center; /* Center vertically within .name-wrap */
+  text-align: center;
+}
+
+.name {
+  font-size: 2em; /* Adjust the font size as needed */
+  font-weight: bold;
+}
+
+.arrow:hover {
+  cursor: pointer;
 }
