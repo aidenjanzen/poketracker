@@ -169,8 +169,9 @@ body {
 .pokePage {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
   width: 100%;
+  align-items: left;
 }
 
 :root {
@@ -335,9 +336,9 @@ SIDEBAR
   overflow: hidden;
   transition: left 0.5s ease;
   z-index: 999;
-  display: flex; /* Change to flex to evenly space items */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: space-between; /* Space items evenly vertically */
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
   height: 200px;
 }
 
@@ -636,4 +637,94 @@ COLLECTIONS PAGE
   width: 600px;
   height: 30px;
   /* text-align: center; */
+}
+
+.hidden {
+  display: none;
+}
+
+/* .filbtn{
+  width: 10%;
+} */
+
+#searchbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#SearchInput {
+  width: 20%;
+}
+
+/* .sidebar {
+  position: fixed;
+  top: 40%;
+  right: -35px;
+  width: 50px;
+  
+  background-color: #ed5564;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  overflow: hidden;
+  transition: left 0.5s ease;
+  z-index: 999;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  height: 200px;
+} */
+
+
+/*SideBar for the Filtering */
+
+.filbtn {
+  position: fixed;
+  top: 20%;
+  right: -35px;
+  width: 50px;
+  background-color: #ed5564;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: right 0.1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  height: 550px;
+}
+
+.filbtn:hover {
+  right: 0;
+}
+
+.filbtn ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  height: 100%; 
+}
+
+.filbtn button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.filbtn button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
