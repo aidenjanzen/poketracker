@@ -686,8 +686,8 @@ COLLECTIONS PAGE
 .filbtn {
   position: fixed;
   top: 20%;
-  right: -35px;
-  width: 50px;
+  right: -75px;
+  width: 100px;
   background-color: #ed5564;
   padding-top: 20px;
   padding-bottom: 15px;
@@ -727,4 +727,8 @@ COLLECTIONS PAGE
 
 .filbtn button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.filbtn ul::-webkit-scrollbar{
+  display: none;
 }
