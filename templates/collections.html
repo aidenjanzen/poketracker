@@ -40,12 +40,12 @@
       class="pokeImage"
       src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i.pokemon_number}}.png"
     />
-    <h3>Type:
+    <div class="power-wrapper">
       {% set types = pokedex[i.pokemon_number].type %}
-      {% for type in types %}
-        {{ type }}
-      {% endfor %}
-    </h3>
+        {% for type in types %}
+          <p class="power-wrapper {{type}}">{{ type }}</p>
+        {% endfor %}
+    </div>
 
     {% for type in types %}
       <div class="{{ type }}" style="display: none;"></div>

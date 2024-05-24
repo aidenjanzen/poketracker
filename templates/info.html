@@ -32,8 +32,10 @@
   </div>
   <div class="detail-card-detail-wrapper">
     <div class="power-wrapper">
-      <p class="body3-fonts type grass"></p>
-      <p class="body3-fonts type poison"></p>
+      {% set types = pokedex[number].type %}
+        {% for type in types %}
+          <p class="power-wrapper {{type}}">{{ type }}</p>
+        {% endfor %}
     </div>
     <p class="body2-fonts about-text">About</p>
     <div class="pokemon-detail-wrapper">

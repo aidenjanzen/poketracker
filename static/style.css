@@ -826,6 +826,8 @@ main {
 }
 
 .detail-card-detail-wrapper {
+  margin: auto;
+  width: 85%;
   border-radius: 8px;
   background-color: var(--grayscale-white);
   box-shadow: var(--drop-shadow-inner);
@@ -950,6 +952,7 @@ main {
 
 .stats-wrap .progress-bar::-webkit-progress-value {
   border-radius: 4px;
+  background-color: #ff0000;
 }
 
 .detail-bg {
@@ -999,9 +1002,6 @@ audio::-webkit-media-controls-timeline {
 /* audio::-webkit-media-controls-play-button{
   background-color:green;
 } */
-audio::-webkit-media-controls-timeline-container {
-  display: none;
-}
 audio::-webkit-media-controls-current-time-display {
   display: none;
 }
@@ -1017,3 +1017,81 @@ audio::-webkit-media-controls-enclosure {
   justify-content: center;
   margin: auto;
 }
+
+.power-wrapper .Normal{
+  background-color: #A8A878;
+}
+
+.power-wrapper .Fire {
+  background-color: #F08030;
+}
+
+.power-wrapper .Fighting {
+  background-color: #C03028;
+}
+
+.power-wrapper .Water {
+  background-color: #6890F0;
+}
+
+.power-wrapper .Flying {
+  background-color: #A890F0;
+}
+
+.power-wrapper .Grass {
+  background-color: #78C850;
+}
+
+.power-wrapper .Poison {
+  background-color: #A040A0;
+}
+
+.power-wrapper .Electric {
+  background-color: #F8D030;
+}
+
+.power-wrapper .Ground {
+  background-color: #E0C068;
+}
+
+.power-wrapper .Psychic {
+  background-color: #F85888;
+}
+
+.power-wrapper .Rock {
+  background-color: #B8A038;
+}
+
+.power-wrapper .Ice {
+  background-color: #98D8D8;
+}
+
+.power-wrapper .Bug {
+  background-color: #A8B820;
+}
+
+.power-wrapper .Dragon {
+  background-color: #7038F8;
+}
+
+.power-wrapper .Ghost {
+  background-color: #705898;
+}
+
+.power-wrapper .Dark {
+  background-color: #705848;
+}
+
+.power-wrapper .Steel {
+  background-color: #B8B8D0;
+}
+
+.power-wrapper .Fairy {
+  background-color: #EE99AC;
+}
+
+.power-wrapper .Unknown {
+  background-color: #B8B8B8; /* Gray for unknown type */
+}
+
+
