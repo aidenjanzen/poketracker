@@ -1,20 +1,29 @@
 {% extends "base.html" %} {% block content %}
 <main class="detail-main main">
-  <div class="header-wrapper">
-    <div class="header-wrap">
-      <div class="arrow left-arrow" id="leftArrow">
-        <img
-          src="/static/assests/chevron_left.svg"
-          alt="back"
-          class="left-arrow-img"
-        />
-      </div>
-      <div class="name-wrap">
-        <h1 class="name">{{pokedex[number].name}}</h1>
-      </div>
-      <div class="arrow right-arrow" id="rightArrow">
-        <img src="/static/assests/chevron_right.svg" alt="forward" />
-      </div>
+        <div class="header-wrapper">
+            <div class="header-wrap">
+                <div class="name-wrap">
+                    <h1 class="name">{{pokedex[number].name}}</h1>
+                </div>
+                <audio controls>
+                    <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/{{number}}.ogg" type="audio/ogg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="pokemon-id-wrap">
+                <p class="body2-fonts"></p>
+            </div>
+        </div>
+    <div class="featured-img">
+        <a href="#" class="arrow left-arrow" id="leftArrow">
+            <img src="/static/assests/chevron_left.svg" alt="back" />
+        </a>
+        <div class="detail-img-wrapper">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{number}}.png" alt="" />
+        </div>
+        <a href="#" class="arrow right-arrow" id="rightArrow">
+            <img src="/static/assests/chevron_right.svg" alt="forward" />
+        </a>
     </div>
     <div class="pokemon-id-wrap">
       <p class="body2-fonts"></p>
