@@ -27,11 +27,11 @@ Our development team, Team Rocket:
 
 Aiden Janzen - Code Manager
 
-Jaymond Mach - Product Owner
+Jaymond Mach - UI Designer
 
-Godriele De La Cruz - UI Designer
+Godriele Dela Cruz - Documentation
 
-Matthew Freyvogel - Documentation
+Matthew Freyvogel - Product Owner
 
 Noah Thomson - SCRUM Master
 
