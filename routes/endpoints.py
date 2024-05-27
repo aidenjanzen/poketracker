@@ -145,22 +145,6 @@ def info(number):
     response = requests.get(
         f"https://pokeapi.co/api/v2/pokemon/{number}/encounters")
     data = response.json()
-
-    locations_with_versions = []
-
-    for location in data:
-        location_name = location["location_area"]["name"]
-        location_name = location_name.replace("-", " ")
-        location_name = string.capwords(location_name)
-        
-        for version_detail in location["version_details"]:
-            version_name = version_detail["version"]["name"]
-            version_name = version_name.replace("-", " ")
-            version_name = string.capwords(version_name)
-
-            locations_with_versions.append(
-                {"location": location_name, "version": version_name})
-            
     
     versions_with_locations = {}
 
@@ -179,20 +163,10 @@ def info(number):
             
             versions_with_locations[version_name].append(location_name)
 
-    # Display the result
-    print(versions_with_locations)
-
-
-
-
-
-
-
     return render_template("info.html",
                            pokedex=pokedex,
                            number=number,
                            weight=weight, height=height,
-                           locations=locations_with_versions,
                            hp=hp, defense=defense,
                            attack=attack,
                            special_attack=special_attack,
