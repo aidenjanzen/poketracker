@@ -912,7 +912,7 @@ main {
 }
 
 .detail-card-detail-wrapper .about-text {
-  font-weight: var(--font-weight-bold);
+  /* font-weight: var(--font-weight-bold); */
   text-align: center;
 }
 
@@ -943,17 +943,57 @@ main {
 .stats-wrap .progress-bar {
   flex: 1;
   border-radius: 4px;
-  height: 4px;
+  height: 8px;
+  padding-right: 13px;
 }
 
 .stats-wrap .progress-bar::-webkit-progress-bar {
   border-radius: 4px;
+  background-color: lightgrey;
 }
 
-.stats-wrap .progress-bar::-webkit-progress-value {
+.stats-wrap .hp::-webkit-progress-value {
   border-radius: 4px;
-  background-color: #ff0000;
+  background-color: #69DC12;
 }
+.stats-wrap .atk::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #EFCC18;
+}
+.stats-wrap .def::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #E86412;
+}
+.stats-wrap .satk::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #14C3F1;
+}
+.stats-wrap .sdef::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #4A6ADF;
+}
+.stats-wrap .spd::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #D51DAD;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .detail-bg {
   position: absolute;

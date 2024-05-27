@@ -37,14 +37,14 @@
           <p class="power-wrapper {{type}}">{{ type }}</p>
         {% endfor %}
     </div>
-    <p class="body2-fonts about-text">About</p>
+    <h2 class="about-text">About</h2>
     <div class="pokemon-detail-wrapper">
       <div class="pokemon-detail-wrap">
         <div class="pokemon-detail">
           <img src="/static/assests/weight.svg" alt="weight" />
           <p class="body3-fonts weight">{{weight}}</p>
         </div>
-        <p class="caption-fonts">Weight</p>
+        <p class="caption-fonts">Weight (kg)</p>
       </div>
       <div class="pokemon-detail-wrap">
         <div class="pokemon-detail">
@@ -55,7 +55,7 @@
           />
           <p class="body3-fonts height">{{height}}</p>
         </div>
-        <p class="caption-fonts">Height</p>
+        <p class="caption-fonts">Height (m)</p>
       </div>
       <div class="pokemon-detail-wrap">
         <div class="pokemon-detail">
@@ -70,22 +70,26 @@
       </div>
     </div>
     <p class="body3-fonts pokemon-description"></p>
-    <p class="body2-fonts about-text">Base Stats</p>
+    <h2 class="about-text">Base Stats</h2>
+  
     <div class="stats-wrapper">
       <div class="stats-wrap" data-stat="hp">
         <p class="body3-fonts stats">HP</p>
         <p class="body3-fonts">{{hp}}</p>
-        <progress value="{{hp}}" max="255" class="progress-bar"></progress>
+        <progress value="{{hp}}" max="255" class="progress-bar hp"></progress>
+        <p class="body3-fonts">255</p>
       </div>
       <div class="stats-wrap" data-stat="ATK">
         <p class="body3-fonts stats">ATK</p>
         <p class="body3-fonts">{{attack}}</p>
-        <progress value="{{attack}}" max="255" class="progress-bar"></progress>
+        <progress value="{{attack}}" max="255" class="progress-bar atk"></progress>
+        <p class="body3-fonts">255</p>
       </div>
       <div class="stats-wrap" data-stat="DEF">
         <p class="body3-fonts stats">DEF</p>
         <p class="body3-fonts">{{defense}}</p>
-        <progress value="{{defense}}" max="255" class="progress-bar"></progress>
+        <progress value="{{defense}}" max="255" class="progress-bar def"></progress>
+        <p class="body3-fonts">255</p>
       </div>
       <div class="stats-wrap" data-stat="SATK">
         <p class="body3-fonts stats">SATK</p>
@@ -93,8 +97,9 @@
         <progress
           value="{{special_attack}}"
           max="255"
-          class="progress-bar"
+          class="progress-bar satk"
         ></progress>
+        <p class="body3-fonts">255</p>
       </div>
       <div class="stats-wrap" data-stat="SDEF">
         <p class="body3-fonts stats">SDEF</p>
@@ -102,13 +107,15 @@
         <progress
           value="{{special_defense}}"
           max="255"
-          class="progress-bar"
+          class="progress-bar sdef"
         ></progress>
+        <p class="body3-fonts">255</p>
       </div>
       <div class="stats-wrap" data-stat="SPD">
         <p class="body3-fonts stats">SPD</p>
         <p class="body3-fonts">{{speed}}</p>
-        <progress value="{{speed}}" max="255" class="progress-bar"></progress>
+        <progress value="{{speed}}" max="255" class="progress-bar spd"></progress>
+        <p class="body3-fonts">255</p>
       </div>
     </div>
     <div class="location-info">
@@ -123,7 +130,7 @@
       </ul>
       {% endif %}
     </div>
-    <div class="moves">
+    <!-- <div class="moves">
       <h2>Moves</h2>
       {% if moves == [] %}
       <p>No moves found</p>
@@ -134,7 +141,7 @@
         {% endfor %}
       </ul>
       {% endif %}
-    </div>
+    </div> -->
   </div>
   <img src="/static/assests/pokedex.svg" alt="pokedex" class="detail-bg" />
 </main>

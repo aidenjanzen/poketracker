@@ -4,6 +4,7 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for, f
 from models import Users, Collection, PokeCollection, Pokemon
 from flask_login import login_user, logout_user, current_user
 import requests
+import string
 
 from pokedex import pokedex
 
@@ -133,14 +134,14 @@ def info(number):
             speed = stat['base_stat']
 
 
-    moves = []
+    # moves = []
 
-    for move in data['moves']:
-        move_name = move["move"]["name"]
-        for version_detail in move["version_group_details"]:
-            version_name = version_detail["version_group"]["name"]
-            moves.append(
-                {"name": move_name, "version": version_name})
+    # for move in data['moves']:
+    #     move_name = move["move"]["name"]
+    #     for version_detail in move["version_group_details"]:
+    #         version_name = version_detail["version_group"]["name"]
+    #         moves.append(
+    #             {"name": move_name, "version": version_name})
 
 
     response = requests.get(
@@ -151,10 +152,18 @@ def info(number):
 
     for location in data:
         location_name = location["location_area"]["name"]
+        location_name = location_name.replace("-", " ")
+        location_name = string.capwords(location_name)
+        
         for version_detail in location["version_details"]:
             version_name = version_detail["version"]["name"]
+            version_name = version_name.replace("-", " ")
+            version_name = string.capwords(version_name)
+
             locations_with_versions.append(
                 {"location": location_name, "version": version_name})
+            
+    
 
     return render_template("info.html",
                            pokedex=pokedex,
@@ -166,5 +175,5 @@ def info(number):
                            special_attack=special_attack,
                            special_defense=special_defense,
                            speed=speed,
-                           moves=moves
+                        #    moves=moves
                            )
