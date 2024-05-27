@@ -172,6 +172,7 @@ body {
   justify-content: left;
   width: 100%;
   align-items: left;
+  margin-left: 20px;
 }
 
 :root {
@@ -211,7 +212,7 @@ body {
 
 .genbarbase {
   padding-top: 50px;
-  padding-bottom: 50px;
+  /* padding-bottom: 10px; */
 }
 
 .genHome:hover,
@@ -629,7 +630,7 @@ COLLECTIONS PAGE
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 #SearchInput {
@@ -670,6 +671,7 @@ COLLECTIONS PAGE
   width: 100px;
   background-color: #ed5564;
   padding-top: 20px;
+  padding-left: 10px;
   padding-bottom: 15px;
   border-top-left-radius: 20px; /* Rounded corner for top left */
   border-bottom-left-radius: 20px; /* Rounded corner for bottom left */
@@ -711,3 +713,426 @@ COLLECTIONS PAGE
 .filbtn ul::-webkit-scrollbar {
   display: none;
 }
+
+.filbtn ul::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----------------------------------------------------------info-------------------------------- */
+:root {
+  --identity-primary: #6a6a6a;
+  --grayscale-dark: #212121;
+  --grayscale-medium: #666666;
+  --grayscale-light: #e0e0e0;
+  --grayscale-background: #efefef;
+  --grayscale-white: #ffffff;
+  --body2-font-size: 12px;
+  --body3-font-size: 14px;
+  --caption-font-size: 14px;
+  --common-line-height: 16px;
+  --caption-line-height: 12px;
+  --font-weight-bold: 700;
+  --drop-shadow-inner: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+}
+
+.body2-fonts,
+.body3-fonts {
+  line-height: var(--common-line-height);
+}
+
+.body2-fonts {
+  font-size: var(--body2-font-size);
+}
+
+.body3-fonts {
+  font-size: var(--body3-font-size);
+}
+
+.caption-fonts {
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+}
+
+main {
+  height: max-content;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.header {
+  padding: 20px 20px 24px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+
+.header-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.back-btn-wrap {
+  max-height: 32px;
+}
+
+.back-btn-wrap img,
+.header-wrapper p,
+.header-wrapper h1 {
+  fill: var(--grayscale-white);
+  color: var(--grayscale-white);
+}
+
+/* .featured-img {
+  position: relative;
+} */
+/* 
+.featured-img a.arrow {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+} */
+
+.featured-img a.arrow.left-arrow {
+  left: -50px;
+}
+
+.featured-img a.arrow.right-arrow {
+  right: -2rem;
+}
+
+.left-arrow-img {
+  left: 100px;
+}
+
+.detail-img-wrapper {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+}
+
+.detail-img-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.detail-card-detail-wrapper {
+  margin: auto;
+  width: 85%;
+  border-radius: 8px;
+  background-color: var(--grayscale-white);
+  box-shadow: var(--drop-shadow-inner);
+  padding: 56px 20px 20px 20px;
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.power-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.power-wrapper > p {
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-weight: var(--font-weight-bold);
+  color: var(--grayscale-white);
+  text-transform: capitalize;
+  background-color: #74cb48;
+}
+
+.pokemon-detail-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.pokemon-detail-wrapper .pokemon-detail-wrap {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.pokemon-detail-wrap:before {
+  content: "";
+  background-color: var(--grayscale-light);
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.pokemon-detail-wrap:last-child::before {
+  display: none;
+}
+
+.pokemon-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  gap: 8px;
+}
+
+.pokemon-detail-wrapper {
+  min-height: 76px;
+}
+
+.pokemon-detail.number {
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  padding: 8px 5px;
+}
+
+.pokemon-detail-wrap > .caption-fonts {
+  color: var(--grayscale-medium);
+}
+
+.pokemon-detail-wrap .straighten {
+  height: 15px;
+  width: 15px;
+}
+
+.detail-card-detail-wrapper .about-text {
+  /* font-weight: var(--font-weight-bold); */
+  text-align: center;
+}
+
+.detail-card-detail-wrapper .pokemon-description {
+  color: var(--grayscale-dark);
+  text-align: center;
+}
+
+.stats-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.stats-wrap p {
+  color: var(--grayscale-dark);
+  margin-right: 8px;
+  min-width: 19px;
+}
+
+.stats-wrap p.stats {
+  text-align: right;
+  padding-right: 8px;
+  min-width: 35px;
+  border-right: 1px solid var(--grayscale-light);
+  font-weight: var(--font-weight-bold);
+}
+
+.stats-wrap .progress-bar {
+  flex: 1;
+  border-radius: 4px;
+  height: 8px;
+  padding-right: 13px;
+}
+
+.stats-wrap .progress-bar::-webkit-progress-bar {
+  border-radius: 4px;
+  background-color: lightgrey;
+}
+
+.stats-wrap .hp::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #69DC12;
+}
+.stats-wrap .atk::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #EFCC18;
+}
+.stats-wrap .def::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #E86412;
+}
+.stats-wrap .satk::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #14C3F1;
+}
+.stats-wrap .sdef::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #4A6ADF;
+}
+.stats-wrap .spd::-webkit-progress-value {
+  border-radius: 4px;
+  background-color: #D51DAD;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.detail-bg {
+  position: absolute;
+  z-index: 1;
+  right: 8px;
+  top: 8px;
+  opacity: 0.1;
+}
+
+.detail-bg path {
+  fill: var(--grayscale-white);
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Full width to ensure proper centering */
+  height: 100%; /* Full height if you want vertical centering too */
+}
+
+.centered-header .name-wrap {
+  flex: 1;
+  text-align: center;
+}
+
+.name-wrap {
+  display: flex;
+  justify-content: center; /* Center horizontally within .name-wrap */
+  align-items: center; /* Center vertically within .name-wrap */
+  text-align: center;
+}
+
+.name {
+  font-size: 2em; /* Adjust the font size as needed */
+  font-weight: bold;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+/* --------------------------audio--------------- */
+audio::-webkit-media-controls-timeline {
+  display: none;
+}
+/* audio::-webkit-media-controls-play-button{
+  background-color:green;
+} */
+audio::-webkit-media-controls-current-time-display {
+  display: none;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+audio::-webkit-media-controls-enclosure {
+  width: auto;
+}
+.audio-cries {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.power-wrapper .Normal{
+  background-color: #A8A878;
+}
+
+.power-wrapper .Fire {
+  background-color: #F08030;
+}
+
+.power-wrapper .Fighting {
+  background-color: #C03028;
+}
+
+.power-wrapper .Water {
+  background-color: #6890F0;
+}
+
+.power-wrapper .Flying {
+  background-color: #A890F0;
+}
+
+.power-wrapper .Grass {
+  background-color: #78C850;
+}
+
+.power-wrapper .Poison {
+  background-color: #A040A0;
+}
+
+.power-wrapper .Electric {
+  background-color: #F8D030;
+}
+
+.power-wrapper .Ground {
+  background-color: #E0C068;
+}
+
+.power-wrapper .Psychic {
+  background-color: #F85888;
+}
+
+.power-wrapper .Rock {
+  background-color: #B8A038;
+}
+
+.power-wrapper .Ice {
+  background-color: #98D8D8;
+}
+
+.power-wrapper .Bug {
+  background-color: #A8B820;
+}
+
+.power-wrapper .Dragon {
+  background-color: #7038F8;
+}
+
+.power-wrapper .Ghost {
+  background-color: #705898;
+}
+
+.power-wrapper .Dark {
+  background-color: #705848;
+}
+
+.power-wrapper .Steel {
+  background-color: #B8B8D0;
+}
+
+.power-wrapper .Fairy {
+  background-color: #EE99AC;
+}
+
+.power-wrapper .Unknown {
+  background-color: #B8B8B8; /* Gray for unknown type */
+}
+
+

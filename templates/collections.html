@@ -1,4 +1,32 @@
 {% extends "base.html" %} {% block content %}
+<div id="filterbtns" class="filbtn">
+  <ul>
+    <li><button type="button" class="filter btn" onclick="showAll()">All</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Grass')">Grass</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Fire')">Fire</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Water')">Water</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Bug')">Bug</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Poison')">Poison</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Flying')">Flying</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Normal')">Normal</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Electric')">Electric</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Ground')">Ground</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Fairy')">Fairy</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Psychic')">Psychic</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Ghost')">Ghost</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Ice')">Ice</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Dragon')">Dragon</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Dark')">Dark</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Fighting')">Fighting</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Rock')">Rock</button></li>
+    <li><button type="button" class="filter btn" onclick="showPokemon('Steel')">Steel</button></li>
+  </ul>
+</div>
+
+<div id="searchbar">
+  <input type="text" id="SearchInput" onkeyup="searchfunc()" placeholder="Search">
+</div>
+
 <div class="header-gen">
   <h1 class="missingH1">The Pokémon you are missing are:</h1>
 </div>
@@ -12,31 +40,79 @@
       class="pokeImage"
       src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{i.pokemon_number}}.png"
     />
-    <h3>
-      Type: {% for type in pokedex[i.pokemon_number].type %} {{ type }} {%
-      endfor %}
-    </h3>
+    <div class="power-wrapper">
+      {% set types = pokedex[i.pokemon_number].type %}
+        {% for type in types %}
+          <p class="power-wrapper {{type}}">{{ type }}</p>
+        {% endfor %}
+    </div>
+
+    {% for type in types %}
+      <div class="{{ type }}" style="display: none;"></div>
+    {% endfor %}
+
   <div class="padding">
     <form method="POST" action="{{ url_for('html.remove_pokemon') }}">
       <input type="hidden" name="pokemon_number" value="{{ i.pokemon_number }}"/>
       <button type="submit" class="infobutton addCollection">
-        Remove from Collection
+        Remove
       </button>
     </form>
   </div>
     <button class="infobutton outsideInfoButton">
-      <a class="infobutton" href="#modal{{i.pokemon_number}}">Information</a>
+      <a class="infobutton" href="{{ url_for('html.info', number=i.pokemon_number) }}">Information</a>
     </button>
-
-    <div class="popup" id="modal{{i.pokemon_number}}">
-      <a class="popup__overlay" href="#"></a>
-      <div class="popup__wrapper">
-        <a class="popup__close" href="#">Close icon here</a>
-        <p>You click on Pokemon number {{i.pokemon_number}}</p>
-      </div>
-    </div>
   </div>
   {% endfor %}
 </div>
+
+<script>
+  function searchfunc(){
+    const pokePage = document.querySelector('.pokePage')
+
+    if (!pokePage) {
+      console.log('No pokePage container found.');
+      return;
+    }
+
+    const input = document.getElementById('SearchInput');
+    const filter = input.value.toUpperCase();
+    const pokeDivs = pokePage.querySelectorAll('.pokeDiv');
+
+    pokeDivs.forEach((pokeDiv, index) => {
+      const h2 = pokeDiv.querySelector('h2');
+      if (h2) {
+        const txtValue = h2.textContent || h2.innerText;
+
+        if (txtValue.toUpperCase().includes(filter)) {
+          pokeDiv.classList.remove('hidden');
+        } else{
+          pokeDiv.classList.add('hidden');
+        }
+      }
+
+    });
+  }
+  //var typedic = {
+  //}
+  function showPokemon(type) {
+    document.querySelectorAll('.pokeDiv').forEach(function(element) {
+      element.classList.add('hidden');
+    });
+    //for (var typeKey in typedic) {
+    //  typedic[typeKey] = false;
+    //}
+    document.querySelectorAll('.' + type).forEach(function(element) {
+      element.parentElement.classList.remove('hidden');
+      //typedic[type] = true;
+    });
+  }
+
+  function showAll() {
+    document.querySelectorAll('.pokeDiv').forEach(function(element) {
+      element.classList.remove('hidden');
+    });
+  }
+</script>
 
 {% endblock %}

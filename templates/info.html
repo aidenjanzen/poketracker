@@ -1,0 +1,177 @@
+{% extends "base.html" %} {% block content %}
+<main class="detail-main main">
+        <div class="header-wrapper">
+            <div class="header-wrap">
+                <div class="name-wrap">
+                    <a href="#" class="arrow left-arrow" id="leftArrow">
+                        <img src="/static/assests/chevron_left.svg" alt="back" />
+                    </a>
+                    <h1 class="name">{{pokedex[number].name}}</h1>
+                    
+                    <a href="#" class="arrow right-arrow" id="rightArrow">
+                        <img src="/static/assests/chevron_right.svg" alt="forward" />
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+        <audio controls class="audio-cries">
+            <source src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/{{number}}.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+    <div class="pokemon-id-wrap">
+      <p class="body2-fonts"></p>
+    </div>
+  </div>
+    <div class="detail-img-wrapper">
+      <img
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{number}}.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="detail-card-detail-wrapper">
+    <div class="power-wrapper">
+      {% set types = pokedex[number].type %}
+        {% for type in types %}
+          <p class="power-wrapper {{type}}">{{ type }}</p>
+        {% endfor %}
+    </div>
+    <h2 class="about-text">About</h2>
+    <div class="pokemon-detail-wrapper">
+      <div class="pokemon-detail-wrap">
+        <div class="pokemon-detail">
+          <img src="/static/assests/weight.svg" alt="weight" />
+          <p class="body3-fonts weight">{{weight}}</p>
+        </div>
+        <p class="caption-fonts">Weight (kg)</p>
+      </div>
+      <div class="pokemon-detail-wrap">
+        <div class="pokemon-detail">
+          <img
+            src="/static/assests/height.svg"
+            alt="height"
+            class="straighten"
+          />
+          <p class="body3-fonts height">{{height}}</p>
+        </div>
+        <p class="caption-fonts">Height (m)</p>
+      </div>
+      <div class="pokemon-detail-wrap">
+        <div class="pokemon-detail">
+          <img
+            src="/static/assests/hashtag-svgrepo-com.svg"
+            alt="height"
+            class="straighten"
+          />
+          <p class="body3-fonts height">{{number}}</p>
+        </div>
+        <p class="caption-fonts">Number</p>
+      </div>
+    </div>
+    <p class="body3-fonts pokemon-description"></p>
+    <h2 class="about-text">Base Stats</h2>
+  
+    <div class="stats-wrapper">
+      <div class="stats-wrap" data-stat="hp">
+        <p class="body3-fonts stats">HP</p>
+        <p class="body3-fonts">{{hp}}</p>
+        <progress value="{{hp}}" max="255" class="progress-bar hp"></progress>
+        <p class="body3-fonts">255</p>
+      </div>
+      <div class="stats-wrap" data-stat="ATK">
+        <p class="body3-fonts stats">ATK</p>
+        <p class="body3-fonts">{{attack}}</p>
+        <progress value="{{attack}}" max="255" class="progress-bar atk"></progress>
+        <p class="body3-fonts">255</p>
+      </div>
+      <div class="stats-wrap" data-stat="DEF">
+        <p class="body3-fonts stats">DEF</p>
+        <p class="body3-fonts">{{defense}}</p>
+        <progress value="{{defense}}" max="255" class="progress-bar def"></progress>
+        <p class="body3-fonts">255</p>
+      </div>
+      <div class="stats-wrap" data-stat="SATK">
+        <p class="body3-fonts stats">SATK</p>
+        <p class="body3-fonts">{{special_attack}}</p>
+        <progress
+          value="{{special_attack}}"
+          max="255"
+          class="progress-bar satk"
+        ></progress>
+        <p class="body3-fonts">255</p>
+      </div>
+      <div class="stats-wrap" data-stat="SDEF">
+        <p class="body3-fonts stats">SDEF</p>
+        <p class="body3-fonts">{{special_defense}}</p>
+        <progress
+          value="{{special_defense}}"
+          max="255"
+          class="progress-bar sdef"
+        ></progress>
+        <p class="body3-fonts">255</p>
+      </div>
+      <div class="stats-wrap" data-stat="SPD">
+        <p class="body3-fonts stats">SPD</p>
+        <p class="body3-fonts">{{speed}}</p>
+        <progress value="{{speed}}" max="255" class="progress-bar spd"></progress>
+        <p class="body3-fonts">255</p>
+      </div>
+    </div>
+    <div class="location-info">
+      <h2>Locations</h2>
+      {% if versions_with_locations == {} %}
+      <p>No locations found</p>
+      {% else %}
+      <ul>
+          {% for version, locations in versions_with_locations.items() %}
+          <li>
+              <strong>{{ version }}</strong>
+              <ul>
+                  {% for location in locations %}
+                  <li>{{ location }}</li>
+                  {% endfor %}
+              </ul>
+          </li>
+          <br>
+          {% endfor %}
+      </ul>
+      {% endif %}
+  </div>
+
+    <!-- <div class="moves">
+      <h2>Moves</h2>
+      {% if moves == [] %}
+      <p>No moves found</p>
+      {% else %}
+      <ul>
+        {% for move in moves %}
+        <li>{{ move.name }} - {{ move.version }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div> -->
+  </div>
+  <img src="/static/assests/pokedex.svg" alt="pokedex" class="detail-bg" />
+</main>
+
+<script>
+  const leftArrow = document.getElementById("leftArrow");
+  const rightArrow = document.getElementById("rightArrow");
+  const maxPokemonNumber = 1025; // Assuming there are 898 Pokémon in the dataset
+
+  leftArrow.addEventListener("click", () => {
+    const currentPokemonNumber = parseInt("{{number}}");
+    const previousPokemonNumber =
+      currentPokemonNumber === 1 ? maxPokemonNumber : currentPokemonNumber - 1;
+    window.location.href = `/info${previousPokemonNumber}`;
+  });
+
+  rightArrow.addEventListener("click", () => {
+    const currentPokemonNumber = parseInt("{{number}}");
+    const nextPokemonNumber =
+      currentPokemonNumber === maxPokemonNumber ? 1 : currentPokemonNumber + 1;
+    window.location.href = `/info${nextPokemonNumber}`;
+  });
+</script>
+{% endblock %}
