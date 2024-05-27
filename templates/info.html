@@ -120,16 +120,25 @@
     </div>
     <div class="location-info">
       <h2>Locations</h2>
-      {% if locations == [] %}
+      {% if versions_with_locations == {} %}
       <p>No locations found</p>
       {% else %}
       <ul>
-        {% for location in locations %}
-        <li>{{ location.location }} - {{ location.version }}</li>
-        {% endfor %}
+          {% for version, locations in versions_with_locations.items() %}
+          <li>
+              <strong>{{ version }}</strong>
+              <ul>
+                  {% for location in locations %}
+                  <li>{{ location }}</li>
+                  {% endfor %}
+              </ul>
+          </li>
+          <br>
+          {% endfor %}
       </ul>
       {% endif %}
-    </div>
+  </div>
+
     <!-- <div class="moves">
       <h2>Moves</h2>
       {% if moves == [] %}

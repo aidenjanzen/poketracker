@@ -172,6 +172,7 @@ body {
   justify-content: left;
   width: 100%;
   align-items: left;
+  margin-left: 20px;
 }
 
 :root {

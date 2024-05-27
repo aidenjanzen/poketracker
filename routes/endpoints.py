@@ -133,7 +133,6 @@ def info(number):
         if stat['stat']['name'] == 'speed':
             speed = stat['base_stat']
 
-
     # moves = []
 
     # for move in data['moves']:
@@ -142,7 +141,6 @@ def info(number):
     #         version_name = version_detail["version_group"]["name"]
     #         moves.append(
     #             {"name": move_name, "version": version_name})
-
 
     response = requests.get(
         f"https://pokeapi.co/api/v2/pokemon/{number}/encounters")
@@ -164,6 +162,31 @@ def info(number):
                 {"location": location_name, "version": version_name})
             
     
+    versions_with_locations = {}
+
+    for location in data:
+        location_name = location["location_area"]["name"]
+        location_name = location_name.replace("-", " ")
+        location_name = string.capwords(location_name)
+        
+        for version_detail in location["version_details"]:
+            version_name = version_detail["version"]["name"]
+            version_name = version_name.replace("-", " ")
+            version_name = string.capwords(version_name)
+            
+            if version_name not in versions_with_locations:
+                versions_with_locations[version_name] = []
+            
+            versions_with_locations[version_name].append(location_name)
+
+    # Display the result
+    print(versions_with_locations)
+
+
+
+
+
+
 
     return render_template("info.html",
                            pokedex=pokedex,
@@ -175,5 +198,6 @@ def info(number):
                            special_attack=special_attack,
                            special_defense=special_defense,
                            speed=speed,
+                           versions_with_locations=versions_with_locations,
                         #    moves=moves
                            )
