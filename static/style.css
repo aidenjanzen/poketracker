@@ -667,7 +667,7 @@ COLLECTIONS PAGE
   align-items: flex-end; /* Align items to the right */
   position: fixed;
   top: 30%;
-  right: -75px;
+  right: -95px;
   width: 100px;
   background-color: #ed5564;
   padding-top: 20px;
@@ -692,13 +692,12 @@ COLLECTIONS PAGE
 }
 
 .filbtn button {
-  width: 75px;
+  width: 95px;
   padding: 10px;
   box-sizing: border-box;
   background: transparent;
   border: none;
   color: black;
-  text-align: right;
   cursor: pointer;
   transition: text-align 0.5s ease;
   border: 2px solid black;
@@ -845,7 +844,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 13px;
 }
 
 .power-wrapper > p {
